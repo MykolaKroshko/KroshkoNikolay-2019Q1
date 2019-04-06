@@ -1,0 +1,33 @@
+/* Malaga Fonts */
+
+@font-face {
+  font-family: 'Malaga';
+  src: url('../assets/fonts/MalagaOT-RegItalic.woff2') format('woff2'),
+    url('../assets/fonts/MalagaOT-RegItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Titillium Fonts */
+
+@font-face {
+  font-family: 'Titillium';
+  src: url('../assets/fonts/TitilliumWeb-Regular.woff2') format('woff2'),
+    url('../assets/fonts/TitilliumWeb-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Titillium';
+  src: url('../assets/fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),
+    url('../assets/fonts/TitilliumWeb-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Titillium';
+  src: url('../assets/fonts/TitilliumWeb-Bold.woff2') format('woff2'),
+    url('../assets/fonts/TitilliumWeb-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}

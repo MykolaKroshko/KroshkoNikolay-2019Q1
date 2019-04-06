@@ -1,0 +1,10 @@
+#IDE
+*.iml
+.idea/
+
+#Generated files
+node_modules/
+dist/
+
+#Temp Files
+task_files/
