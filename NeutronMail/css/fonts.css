@@ -31,3 +31,42 @@
   font-weight: bold;
   font-style: normal;
 }
+
+/* Font Awesome */
+
+@font-face{
+  font-family:"Font Awesome 5 Brands";
+  font-style:normal;
+  font-weight:normal;
+  font-display:auto;
+  src: url('../assets/fonts/fa-brands-400.woff2') format("woff2"),
+  url('../assets/fonts/fa-brands-400.woff') format("woff");
+}
+@font-face{
+  font-family:"Font Awesome 5 Free";
+  font-style:normal;
+  font-weight:400;
+  font-display:auto;
+  src: url('../assets/fonts/fa-regular-400.woff2') format("woff2"),
+  url('../assets/fonts/fa-regular-400.woff') format("woff");
+}
+@font-face{
+  font-family:"Font Awesome 5 Free";
+  font-style:normal;
+  font-weight:900;
+  font-display:auto;
+  src: url('../assets/fonts/fa-solid-900.woff2') format("woff2"),
+  url('../assets/fonts/fa-solid-900.woff') format("woff");
+}
+.fab{
+  font-family:"Font Awesome 5 Brands"
+}
+.far{
+  font-weight:400
+}
+.fa,.far,.fas{
+  font-family:"Font Awesome 5 Free"
+}
+.fa,.fas{
+  font-weight:900
+}
