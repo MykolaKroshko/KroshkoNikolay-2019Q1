@@ -207,26 +207,20 @@ button{
 
 /* - - - - - - - - - - HEADER END - - - - - - - - - - */
 
+/* - - - - - - - - - - PAGE CONTENT START - - - - - - - - - - */
 
-
-/* - - - - - - - - - - FOOTER START - - - - - - - - - - */
-
-.footer{
+/*__________ Privacy Section Start __________*/
+.section-container{
   display: flex;
   flex-direction: column;
 }
 
-.footer__section{
+.section--privacy{
   border-top: 1px solid #b9b9b9;
   width: calc(100% / 9 * 7);
-}
-
-/*__________ Privacy Section Start __________*/
-
-.footer__section--privacy{
   align-self: flex-end;
-  padding-right: calc(100% / 7 * 2);
   padding: 4.75rem 0;
+  padding-right: calc(100% / 7 * 2);
 }
 
 .privacy__title{
@@ -260,5 +254,107 @@ button{
 }
 
 /*__________ Privacy Section End __________*/
+
+/*__________ Security Section Start __________*/
+
+.section--security{
+  border-top: 1px solid #b9b9b9;
+  width: calc(100% / 9 * 7);
+  padding-left: calc(100% / 7 * 2);
+  padding-bottom: 10rem;
+  position: relative;
+}
+
+.section--security::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 1px;
+  height: calc(100% + 10rem);
+  background-color: #b9b9b9;
+}
+
+.security__title{
+  font-size: 0.875rem;
+  padding: 0 1.75rem;
+  line-height: 4; 
+  color: #7a7a7a;
+  text-align: right;
+  margin: 0;
+  font-weight: normal;
+}
+
+.security__company-list{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.security__company-logo{
+  background: url(../assets/image/logo_sprite.png);
+  background-repeat: no-repeat;
+  font-size: 0;
+  height: 5.75rem;
+  display: inline-block;
+}
+
+.security__company-logo--1{
+  width: 7.5rem;
+  background-position: 0 center;
+}
+
+.security__company-logo--2{
+  width: 9.6875rem;
+  background-position: -120px center;
+}
+
+.security__company-logo--3{
+  width: 7.625rem;
+  background-position: -275px center;
+}
+
+.security__company-logo--4{
+  width: 9.5rem;
+  background-position: -397px center;
+}
+
+.security__company-logo--5{
+  width: 7.8125rem;
+  background-position: -549px center;
+}
+
+.security__company-logo--6{
+  width: 9.375rem;
+  background-position: -674px center;
+}
+
+.security__company-logo--7{
+  width: 6.875rem;
+  background-position: -824px center;
+}
+
+
+/*__________ Security Section End __________*/
+
+/* - - - - - - - - - - PAGE CONTENT END - - - - - - - - - - */
+
+/* - - - - - - - - - - FOOTER START - - - - - - - - - - */
+
+.footer{
+  display: flex;
+}
+
+.footer__section{
+  border-top: 1px solid #b9b9b9;
+  width: calc(100% / 9 * 7);
+}
+
+
+/*__________ Privacy Section Start __________*/
+/*__________ Privacy Section Start __________*/
 
 /* - - - - - - - - - - FOOTER END - - - - - - - - - - */
