@@ -8,6 +8,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 20rem;
+}
+
+*{
+  box-sizing: border-box;
 }
 
 .main{
@@ -21,15 +26,48 @@ button{
 }
 
 .dark-blue-btn{
-  background: var(--login-blue-btn-bg);
+  background: var(--dark-blue-btn-bg);
   color: #ffffff;
   box-shadow: var(--dark-blue-shadow);
-  opacity: 0.9;
-}
-    
+  opacity: 0.8;
+}  
+
 .dark-blue-btn:hover{
   box-shadow: var(--dark-blue-shadow-hover);
   opacity: 1;
+}
+
+.light-blue-btn{
+  background: var(--light-blue-btn-bg);
+  color: #ffffff;
+  box-shadow: var(--light-blue-shadow);
+  opacity: 0.8;
+}  
+
+.light-blue-btn:hover{
+  box-shadow: var(--light-blue-shadow-hover);
+  opacity: 1;
+}
+
+.btn{
+  line-height: 2.5rem;
+  padding: 0 1.25rem;
+  border-radius: 1.25rem;
+  font-weight: bold;
+  transition-duration: 0.2s;
+}
+
+.btn-big{
+  font-weight: bold;
+  transition-duration: 0.2s;
+  font-size: 1.125rem;
+  line-height: 3.5rem; 
+  border-radius: 1.75rem;
+  padding: 0 1.75rem;
+}
+
+.btn:hover{
+  cursor: pointer;
 }
 
 /* - - - - - - - - - - HEADER START - - - - - - - - - - */
@@ -95,22 +133,15 @@ button{
   font-size: 1rem;
 }
 
-.header-btn{
-  height: 2.5rem;
-  padding: 0 1.25rem;
-  border-radius: 1.25rem;
-  border: none; 
-  font-weight: bold;
-  transition-duration: 0.2s;
-}
-
-.header-btn:hover{
-  cursor: pointer;
-}
-
 .login-btn{
   background-color: #ffffff;
   color: #454545;
+  border: none; 
+}
+
+.login-btn-dark{
+  background: var(--login-blue-btn-bg);
+  border: none; 
 }
 
 .login-btn i{
@@ -175,3 +206,59 @@ button{
 /*__________ Language Switcher End __________*/
 
 /* - - - - - - - - - - HEADER END - - - - - - - - - - */
+
+
+
+/* - - - - - - - - - - FOOTER START - - - - - - - - - - */
+
+.footer{
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__section{
+  border-top: 1px solid #b9b9b9;
+  width: calc(100% / 9 * 7);
+}
+
+/*__________ Privacy Section Start __________*/
+
+.footer__section--privacy{
+  align-self: flex-end;
+  padding-right: calc(100% / 7 * 2);
+  padding: 4.75rem 0;
+}
+
+.privacy__title{
+  font-size: 2.25rem;
+  color: #535353;
+  text-align: center;
+  margin: 0;
+  font-weight: normal;
+}
+
+.privacy__subtitle{
+  font-size: 1.8125rem;
+  line-height: 2.3125rem;
+  color: #7c7c7c;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2.125rem;
+}
+
+.privacy__buttons{
+  text-align: center;
+}
+
+.privacy__button{
+  display: inline-block;
+  text-decoration: none;
+}
+
+.privacy__button--mr{
+  margin-right: 3.125rem;
+}
+
+/*__________ Privacy Section End __________*/
+
+/* - - - - - - - - - - FOOTER END - - - - - - - - - - */
