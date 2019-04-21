@@ -73,7 +73,7 @@ button{
 /* - - - - - - - - - - HEADER START - - - - - - - - - - */
 
 .header{
-  max-width: 112.5rem;
+  max-width: 87.5rem;
   margin: 5rem auto 0;
 }
 
@@ -209,7 +209,136 @@ button{
 
 /* - - - - - - - - - - PAGE CONTENT START - - - - - - - - - - */
 
+/*__________ Intro Section Start __________*/
+
+.intro{
+  padding-bottom: 15rem;
+  padding-top: 10rem;
+  position: relative;
+}
+
+.intro__header{
+  color: #454545;
+  font-size: 3.75rem;
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+}
+
+.intro__subheader{
+  font-size: 2.25rem;
+  line-height: 3.5rem;
+  text-align: center;
+  color: #454545;
+  margin: 0;
+  margin-bottom: 4rem;
+}
+
+.intro__subheader--red{
+  color: #fc2028;
+}
+
+.intro__buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.btn-shadow{
+  position: absolute;
+  top: calc(50% - 5px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.intro__button{
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 0.625rem;
+}
+
+.create-button-wrapper{
+  position: relative;
+  margin: 0 0.625rem;
+}  
+
+.create-button-wrapper::before,
+.create-button-wrapper::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 50%;
+  width: 3.125rem;
+  background-size: contain;
+}
+.create-button-wrapper::before{
+  right: calc(100% - 1rem);
+  background-image: url('../assets/image/shadow_left.png')
+}
+
+.create-button-wrapper::after{
+  left: calc(100% - 1rem);
+  background-image: url('../assets/image/shadow_right.png')
+}
+
+.intro__button:first-child{
+  padding: 0 4rem;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  opacity: 1;
+}
+
+.intro__button:first-child:hover{
+  transform: scale(1.05);
+}
+
+.intro__button--round{
+  width: 2.875rem;
+  height: 2.875rem;
+  border-radius: 50%;
+  background-color: #6e4a71;
+  line-height: 2.875rem;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 0.3s ease-in-out; 
+  position: relative;
+  z-index: 1;
+}
+
+.intro__button--round:hover{
+  transform: scale(1.1);
+}
+
+.intro__socials-list{
+  position: absolute;
+  top: 50%;
+  right:2.125rem;
+  transform: translateY(-50%);
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.intro__socials-link{
+  text-decoration: none;
+  font-size: 23px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  line-height: 0;
+  color: #676767;
+  transition: transform 0.3s ease-in-out;
+}
+
+.intro__socials-link:hover {
+  transform: scale(1.1);
+}
+
+/*__________ Intro Section End __________*/
+
 /*__________ Privacy Section Start __________*/
+
 .section-container{
   display: flex;
   flex-direction: column;
@@ -220,7 +349,7 @@ button{
   width: calc(100% / 9 * 7);
   align-self: flex-end;
   padding: 4.75rem 0;
-  padding-right: calc(100% / 7 * 2);
+  padding-right: calc(100% / 9 * 2);
 }
 
 .privacy__title{
@@ -260,7 +389,7 @@ button{
 .section--security{
   border-top: 1px solid #b9b9b9;
   width: calc(100% / 9 * 7);
-  padding-left: calc(100% / 7 * 2);
+  padding-left: calc(100% / 9 * 2);
   padding-bottom: 10rem;
   position: relative;
 }
@@ -371,6 +500,8 @@ button{
   align-items: flex-start;
 }
 
+/*__________ Contacts Start __________*/
+
 .contacts{
   padding-left: 1.75rem;
   position: relative;
@@ -413,6 +544,10 @@ button{
   background-color: #d6d6d6;
   z-index: -1;
 }
+
+/*__________ Contacts End __________*/
+
+/*__________ Site Map Start __________*/
 
 .site-map{
   display: flex;
@@ -482,6 +617,10 @@ button{
   text-decoration: underline
 }
 
+/*__________ Site Map End __________*/
+
+/*__________ Socials Start __________*/
+
 .socials__list{
   display: flex;
   margin: 0;
@@ -525,5 +664,7 @@ button{
   font-size: 0.75rem;
   margin-bottom: 2rem;
 }
+
+/*__________ Socials End __________*/
 
 /* - - - - - - - - - - FOOTER END - - - - - - - - - - */
