@@ -495,8 +495,144 @@ button{
   height: 28rem;
 }
 
-
 /*__________ Infrastructure Section End __________*/
+
+/*__________ Devices Section Start __________*/
+
+.devices__companies-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 1.375rem;
+}
+
+.devices__company-logo{
+  background-image: url('../assets/image/logo_sprite_2.jpg');
+  height: 4.125rem;
+  background-repeat: no-repeat;
+}
+
+.devices__company-logo--1{
+  width: 9.75rem;
+  background-position: 0 center;
+}
+
+.devices__company-logo--2{
+  width: 10.375rem;
+  background-position: -156px center;
+}
+
+.devices__company-logo--3{
+  width: 10rem;
+  background-position: -322px center;
+}
+
+.devices__company-logo--4{
+  width: 10.375rem;
+  background-position: -482px center;
+}
+
+.devices__company-logo--5{
+  width: 10rem;
+  background-position: -648px center;
+}
+
+.devices__company-logo--6{
+  width: 8.25rem;
+  background-position: -808px center;
+}
+
+.devices__content{
+  padding: 0 25rem;
+  margin-top: 3.75rem;
+  position: relative;
+}
+
+.devices__quote{
+  width: 54%;
+  color: #101010;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  position: relative;
+  font-family: Malaga, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.devices__quote-author{
+  font-size: 1rem;
+  color: #727272;
+}
+
+.devices__quote-switcher-list{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: calc(100% + 1.5rem);
+  top: 0;
+  margin-top: 5px;
+}
+
+.devices__quote-switcher-list-item{
+  margin-bottom: 0.6875rem;
+  line-height: 0;
+}
+
+.devices__quote-switcher-item{
+  border: none;
+  width: 0.6875rem;
+  height: 0.6875rem;
+  border-radius: 50%;
+  background-color: #b7b7b7;
+}
+
+.devices__quote-switcher-item.active{
+  background-color: #101010;
+  width: 0.8125rem;
+  height: 0.8125rem;
+}
+
+.devices__main{
+  width: 28.125rem;
+  margin: 6.875rem auto 10rem;
+  position: relative;
+  z-index: 1;
+}
+
+.devices__main-title{
+  font-weight: normal;
+  font-size: 2.25rem;
+  color: #535353;
+  text-align: right;
+  margin: 0;
+}
+
+.devices__main-text{
+  color: #959393;
+  text-align: right;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  margin-bottom: 1.875rem;
+}
+
+.devices__main-links{
+  text-align: right;
+}
+
+.devices__main-link:not(:last-of-type){
+  margin-right: 0.8125rem;
+}
+
+.devices_main-image{
+  position: absolute;
+  top: -3%;
+  right: 14%;
+}
+
+/*__________ Devices Section End __________*/
 
 /*__________ Privacy Section Start __________*/
 
