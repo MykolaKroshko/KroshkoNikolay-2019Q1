@@ -337,6 +337,167 @@ button{
 
 /*__________ Intro Section End __________*/
 
+/*__________ Infrastructure Section Start __________*/
+
+.infrastructure{
+  position: relative;
+  padding: 0 12.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.infrastructure__row--1{
+  display: flex;
+  justify-content: flex-end;
+  padding: 7.5rem 0;
+}
+
+.infrastructure__security{
+  padding: 0 2.5rem;
+}
+
+.infrastructure__security--privacy,
+.infrastructure__security--encryption{
+  width: 30.71%;
+}
+
+.infrastructure__security--email{
+  width: 32.29%;
+  position: relative;
+}
+
+.infrastructure__security--email::after{
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  height: 1px;
+  width: 12.5rem;
+  background-color: #b9b9b9;
+}
+
+.infrastructure__security-image{
+  float: left;
+  width: 3.125rem;
+  height: 3.125rem;
+  margin-left: -5px;
+  margin-right: 1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.infrastructure__security-image--privacy{
+  background-image: url("../assets/image/shield.png")
+}
+
+.infrastructure__security-image--encryption{
+  background-image: url("../assets/image/Lock.png")
+}
+
+.infrastructure__security-image--email{
+  background-image: url("../assets/image/key.png")
+}
+
+.infrastructure__security-title{
+  margin: 0;
+  color: #555555;
+  font-size: 1.875rem;
+  line-height: 2.3125rem;
+  font-weight: normal;
+}
+
+.infrastructure__security-subtitle{
+  font-size: 1.125rem;
+  line-height: 1.375rem;
+  color: #959393;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.infrastructure__security-text{
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  color: #959393;
+}
+
+.infrastructure__security--privacy .infrastructure__security-text{
+  position: relative;
+}
+
+.infrastructure__security--privacy .infrastructure__security-text::after{
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: calc(100% + 2.5rem);
+  width: 1px;
+  height: 14rem;
+  background-color: #b9b9b9;
+}
+
+.infrastructure__row--2{
+  padding-right: 2.5rem;
+  margin-right: 32.29%;
+  position: relative;
+  padding-bottom: 5.5rem;
+}
+
+.infrastructure__title{
+  color: #535353;
+  font-size: 3.75rem;
+  margin: 0;
+  text-align: right;
+  font-weight: normal;
+}
+
+.infrastructure__subtitle{
+  color: #959393;
+  font-size: 1.5rem;
+  line-height: 1.375rem;
+  text-align: right;
+  margin: 1rem 0 0 0;
+}
+
+.infrastructure__subtitle span{
+  color: #f65151;
+}
+
+.infrastructure__block{
+  position: absolute;
+  line-height: 3.75rem;
+  border: 1px solid #b9b9b9;
+  padding: 0 1.875rem;
+  border-radius: 1.875rem;
+  left: 100%;
+  top: calc(100% - 1.875rem);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-size: 1rem;
+  color: #676767;
+}
+
+.infrastructure__block::after,
+.infrastructure__block::before{
+  content: '';
+  position: absolute;
+  background-color: #b9b9b9;
+}
+
+.infrastructure__block::after{
+  top: 50%;
+  right: 100%;
+  height: 1px;
+  width: calc((100vw - 25rem) * 0.6771 - 50% + 12.5rem);
+}
+
+.infrastructure__block::before{
+  bottom: 100%;
+  left: 50%;
+  width: 1px;
+  height: 28rem;
+}
+
+
+/*__________ Infrastructure Section End __________*/
+
 /*__________ Privacy Section Start __________*/
 
 .section-container{
