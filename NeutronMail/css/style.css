@@ -17,23 +17,21 @@ body::after{
   content: '';
   position: absolute;
   z-index: -1;
+  top: 53.5%;
+  left: 0;
 }
 
 body::before{
-  top: 53%;
-  left: 0;
   width: 100%;
   height: 47%;
   background: -webkit-linear-gradient(67.5deg, #ffffff 50%,#eeeeee 100%);
 }
 
 body::after{
-  top: 53%;
-  left: 0;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 10vw 100vw 0 0;
+  border-width: 11vw 100vw 0 0;
   border-color: #ffffff transparent transparent transparent;
 }
 
@@ -77,7 +75,7 @@ button{
 
 .btn{
   line-height: 2.5rem;
-  padding: 0 1.25rem;
+  padding: 0 1.375rem;
   border-radius: 1.25rem;
   font-weight: bold;
   transition-duration: 0.2s;
@@ -100,7 +98,7 @@ button{
 
 .header{
   max-width: 87.5rem;
-  margin: 5rem auto 0;
+  margin: 4.6875rem auto 0;
 }
 
 /*__________ Navigation Start __________*/
@@ -142,7 +140,7 @@ button{
 }
 
 .nav-list-link{
-  padding: 0 0.8125rem;
+  padding: 0 0.75rem;
   font-size: 1rem;
   line-height: 2.5;
   color: #454545;
@@ -154,7 +152,7 @@ button{
 }
 
 .login-buttons{
-  margin-left: 2.8125rem;
+  margin-left: 2.625rem;
   display: flex;
   font-size: 1rem;
 }
@@ -205,7 +203,7 @@ button{
 
 .lang-switcher-list-item:not(:last-of-type)::after{
   content: '/';
-  width: 1.6875rem;
+  width: 1.25rem;
   text-align: center;
   display: inline-block;
 
@@ -225,7 +223,7 @@ button{
   width: 100%;
   height: 1px;
   left: 0;
-  top: calc(100% + 2px);
+  top: calc(100% + 1px);
   background-color: #bfc5d4;
 }
 
@@ -256,8 +254,8 @@ button{
   line-height: 3.5rem;
   text-align: center;
   color: #454545;
-  margin: 0;
-  margin-bottom: 4rem;
+  margin-top: 0.25rem;
+  margin-bottom: 4.125rem;
 }
 
 .intro__subheader--red{
@@ -286,7 +284,7 @@ button{
 
 .create-button-wrapper{
   position: relative;
-  margin: 0 0.625rem;
+  margin: 0 1rem;
 }  
 
 .create-button-wrapper::before,
@@ -331,6 +329,7 @@ button{
   transition: transform 0.3s ease-in-out; 
   position: relative;
   z-index: 1;
+  font-size: 1.375rem;
 }
 
 .intro__button--round:hover{
@@ -339,7 +338,7 @@ button{
 
 .intro__socials-list{
   position: absolute;
-  top: 50%;
+  top: 35.5%;
   right:2.125rem;
   transform: translateY(-50%);
   list-style-type: none;
@@ -349,7 +348,7 @@ button{
 
 .intro__socials-link{
   text-decoration: none;
-  font-size: 23px;
+  font-size: 1.25rem;
   margin-bottom: 1rem;
   display: inline-block;
   line-height: 0;
@@ -381,13 +380,16 @@ button{
   padding: 0 2.5rem;
 }
 
-.infrastructure__security--privacy,
-.infrastructure__security--encryption{
+.infrastructure__security--privacy{
   width: 30.71%;
 }
 
+.infrastructure__security--encryption{
+  width: 31.25%;
+}
+
 .infrastructure__security--email{
-  width: 32.29%;
+  width: 31.75%;
   position: relative;
 }
 
@@ -427,16 +429,17 @@ button{
   margin: 0;
   color: #555555;
   font-size: 1.875rem;
-  line-height: 2.3125rem;
+  line-height: 1;
   font-weight: normal;
+  margin-top: -3px;
 }
 
 .infrastructure__security-subtitle{
   font-size: 1.125rem;
-  line-height: 1.375rem;
+  line-height: 1.4375rem;
   color: #959393;
   margin: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 }
 
 .infrastructure__security-text{
@@ -472,6 +475,7 @@ button{
   margin: 0;
   text-align: right;
   font-weight: normal;
+  line-height: 1;
 }
 
 .infrastructure__subtitle{
@@ -533,7 +537,7 @@ button{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-right: 1.375rem;
+  margin-left: 1.375rem;
 }
 
 .devices__company-logo{
@@ -582,13 +586,14 @@ button{
   width: 54%;
   color: #101010;
   font-size: 1.5rem;
-  line-height: 2rem;
+  line-height: 1.875rem;
   position: relative;
   font-family: Malaga, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 .devices__quote-author{
   font-size: 1rem;
+  margin-top: 0.375rem;
   color: #727272;
 }
 
@@ -623,7 +628,7 @@ button{
 
 .devices__main{
   width: 28.125rem;
-  margin: 6.875rem auto 10rem;
+  margin: 6.75rem auto 10rem 16.125rem;
   position: relative;
   z-index: 1;
 }
@@ -654,8 +659,8 @@ button{
 
 .devices_main-image{
   position: absolute;
-  top: -3%;
-  right: 14%;
+  top: -4%;
+  right: 15%;
 }
 
 /*__________ Devices Section End __________*/
@@ -671,7 +676,7 @@ button{
   border-top: 1px solid #b9b9b9;
   width: calc(100% / 9 * 7);
   align-self: flex-end;
-  padding: 4.75rem 0;
+  padding: 4.25rem 0 5.125rem;
   padding-right: calc(100% / 9 * 2);
 }
 
@@ -689,7 +694,7 @@ button{
   color: #7c7c7c;
   text-align: center;
   margin: 0;
-  margin-bottom: 2.125rem;
+  margin-bottom: 2.375rem;
 }
 
 .privacy__buttons{
@@ -703,6 +708,10 @@ button{
 
 .privacy__button--mr{
   margin-right: 3.125rem;
+}
+
+.privacy__button--right{
+  padding: 0 3rem;
 }
 
 /*__________ Privacy Section End __________*/
@@ -744,6 +753,7 @@ button{
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  margin-top: -34px;
 }
 
 .security__company-logo{
@@ -817,7 +827,7 @@ button{
 }
 
 .footer_row-1{
-  margin-bottom: 5.375rem; 
+  margin-bottom: 4.875rem; 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -826,7 +836,7 @@ button{
 /*__________ Contacts Start __________*/
 
 .contacts{
-  padding-left: 1.75rem;
+  padding-left: 1.25rem;
   position: relative;
 }
 
@@ -844,6 +854,10 @@ button{
   color: #5c5c5c;
   font-size: 0.875rem;
   line-height: 1.4375rem;
+}
+
+.contacts__item:last-of-type{
+  margin-top: 1.5625rem;
 }
 
 .contacts__item:first-of-type{
@@ -902,7 +916,7 @@ button{
   font-size: 1.125rem;
   text-align: right;
   display: block;
-  margin-bottom: 1.875rem;
+  margin-bottom: 1.625rem;
 }
 
 .site-map__list{
@@ -914,7 +928,7 @@ button{
 .site-map__list-item{
   text-align: right;
   font-size: 0.875rem;
-  line-height: 1.5rem;
+  line-height: 1.4375rem;
   position: relative;
   padding-right: 0.625rem;
 }
@@ -950,13 +964,13 @@ button{
   list-style-type: none;
   padding: 0;
   font-size: 0.75rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.125rem;
 }
 
 .socials__list-item:not(:last-child):after{
   content: '/';
   display: inline-block;
-  padding: 0 .875rem;
+  padding: 0 .75rem;
 }
 
 .socials__link{
