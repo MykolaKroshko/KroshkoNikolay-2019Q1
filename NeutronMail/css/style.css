@@ -366,7 +366,8 @@ button{
 
 .infrastructure{
   position: relative;
-  padding: 0 12.5rem;
+  max-width: 87.5rem;
+  margin: 0 auto;
   margin-bottom: 2.5rem;
 }
 
@@ -535,6 +536,7 @@ button{
   padding: 0;
   font-size: 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
   margin-left: 1.375rem;
@@ -577,7 +579,8 @@ button{
 }
 
 .devices__content{
-  padding: 0 25rem;
+  margin: auto;
+  max-width: 62.5rem;
   margin-top: 3.75rem;
   position: relative;
 }
@@ -660,7 +663,8 @@ button{
 .devices_main-image{
   position: absolute;
   top: -4%;
-  right: 15%;
+  right: -13%;
+  max-width: 58%;
 }
 
 /*__________ Devices Section End __________*/
@@ -721,7 +725,6 @@ button{
 .section--security{
   border-top: 1px solid #b9b9b9;
   width: calc(100% / 9 * 7);
-  padding-left: calc(100% / 9 * 2);
   padding-bottom: 10rem;
   position: relative;
 }
@@ -1005,3 +1008,39 @@ button{
 /*__________ Socials End __________*/
 
 /* - - - - - - - - - - FOOTER END - - - - - - - - - - */
+
+@media screen and (max-width: 1799px) {
+  .infrastructure__security--email::after{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1399px) {
+  .section--privacy,
+  .section--security,
+  .footer{
+    width: 100%;
+  }
+
+  .section--privacy{
+    padding-right: 0;
+  }
+
+  .devices_main-image{
+    right: 0;
+    max-width: 50%;
+    top: 10%;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  /* 800-1200 */
+}
+
+@media screen and (max-width: 799px /*767px*/) {
+  /* 540-800 */
+}
+
+@media screen and (max-width: 539px /*479px 419px*/) {
+  /* <540 */
+}
