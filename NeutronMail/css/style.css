@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  min-width: 20rem;
+  min-width: 320px;
   position: relative;
 }
 
@@ -181,6 +181,10 @@ button{
 .login-btn:hover{
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
   background-color: #f5f5f5;
+}
+
+.sign-in-btn-icon{
+  display: none;
 }
 
 /*__________ Navigation End __________*/
@@ -551,6 +555,7 @@ button{
   background-image: url('../assets/image/logo_sprite_2.jpg');
   height: 4.125rem;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .devices__company-logo--1{
@@ -560,27 +565,27 @@ button{
 
 .devices__company-logo--2{
   width: 10.375rem;
-  background-position: -156px center;
+  background-position: -9.75rem center;
 }
 
 .devices__company-logo--3{
   width: 10rem;
-  background-position: -322px center;
+  background-position: -20.125rem center;
 }
 
 .devices__company-logo--4{
   width: 10.375rem;
-  background-position: -482px center;
+  background-position: -30.125rem center;
 }
 
 .devices__company-logo--5{
   width: 10rem;
-  background-position: -648px center;
+  background-position: -40.5rem center;
 }
 
 .devices__company-logo--6{
   width: 8.25rem;
-  background-position: -808px center;
+  background-position: -50.5rem center;
 }
 
 .devices__content{
@@ -770,6 +775,7 @@ button{
   font-size: 0;
   height: 5.75rem;
   display: inline-block;
+  background-size: cover;
 }
 
 .security__company-logo--1{
@@ -779,32 +785,32 @@ button{
 
 .security__company-logo--2{
   width: 9.6875rem;
-  background-position: -120px center;
+  background-position: -7.5rem center;
 }
 
 .security__company-logo--3{
   width: 7.625rem;
-  background-position: -275px center;
+  background-position: -17.1875rem center;
 }
 
 .security__company-logo--4{
   width: 9.5rem;
-  background-position: -397px center;
+  background-position: -24.8125rem center;
 }
 
 .security__company-logo--5{
   width: 7.8125rem;
-  background-position: -549px center;
+  background-position: -34.3125rem center;
 }
 
 .security__company-logo--6{
   width: 9.375rem;
-  background-position: -674px center;
+  background-position: -42.125rem center;
 }
 
 .security__company-logo--7{
   width: 6.875rem;
-  background-position: -824px center;
+  background-position: -51.5rem center;
 }
 
 
@@ -1043,7 +1049,6 @@ button{
 }
 
 @media screen and (max-width: 1199px) {
-  /* 1000-1200 */
   .main{
     background-size: 130% auto;
   }
@@ -1166,7 +1171,6 @@ button{
 }
 
 @media screen and (max-width: 767px) {
-  /* 540-768 */
   .infrastructure__security{
     width: 100%;
     margin-bottom: 2rem;
@@ -1306,7 +1310,6 @@ button{
 }
 
 @media screen and (max-width: 539px) {
-  /* 480 - 540px */
   .main{
     background-size: 210% auto;
   }
@@ -1324,9 +1327,78 @@ button{
   }
 }
 
-@media screen and (max-width: 479px /*479px 419px*/) {
-  /* <540 */
+@media screen and (max-width: 479px) {
+  html{
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 425px) {
   .main {
     background-size: 260% auto;
+  }
+
+  .privacy__buttons,
+  .devices__main-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .privacy__button--mr,
+  .devices__main-link:not(:last-of-type){
+    margin-right: 0;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .main {
+    background-size: 325% auto;
+  }
+
+  .sign-in-btn-icon{
+    display: inline-block;
+  }
+
+  .login-buttons button{
+    font-size: 0;
+    position: relative;
+  }
+
+  .login-buttons i{
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .nav-burger-switcher-label{
+    left: initial;
+    right: 0.5rem;
+  }
+
+  .login-btn{
+    margin-right: 1rem;
+  }
+
+  .intro__buttons{
+    display: block;
+    text-align: center;
+  }
+
+  .create-button-wrapper{
+    margin-bottom: 1.5rem;
+  }
+
+  .create-button-wrapper::before,
+  .create-button-wrapper::after{
+    display: none;
+  }
+
+  .socials__list{
+    display: none;
   }
 }
