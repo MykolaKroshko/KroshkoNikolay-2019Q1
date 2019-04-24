@@ -1016,6 +1016,10 @@ button{
 }
 
 @media screen and (max-width: 1399px) {
+  .main{
+    background-size: 120% auto;
+  }
+
   .section--privacy,
   .section--security,
   .footer{
@@ -1034,11 +1038,122 @@ button{
 }
 
 @media screen and (max-width: 1199px) {
-  /* 800-1200 */
+  /* 1000-1200 */
+  .main{
+    background-size: 130% auto;
+  }
+
+  .header{
+    margin-top: 1rem; 
+  }
+
+  .nav-list-link{
+    padding: 0 0.25rem;
+  }
+
+  .login-buttons{
+    margin-left: 1rem;
+  }
+
+  .intro__header{
+    font-size: 2.5rem;    
+  }
+
+  .intro__subheader{
+    font-size: 1.5rem;
+  }
+
+  .intro{
+    padding-bottom: 10rem;
+    padding-top: 9rem;
+  }
+
+  .infrastructure__security-image,
+  .infrastructure__block::after, 
+  .infrastructure__block::before,
+  .footer::after,
+  .contacts::before,
+  .infrastructure__security--privacy .infrastructure__security-text::after{
+    display: none;
+  }
+
+  .infrastructure__row--2{
+    margin: 0;
+    padding-right: 2.5rem;
+    padding-left: 2.5rem;
+  }
+
+  .devices__main-title,
+  .devices__main-text,
+  .devices__main-links,
+  .infrastructure__subtitle,
+  .infrastructure__title{
+    text-align: center;
+  }
+
+  .infrastructure__block{
+    left: 50%;
+  }
+
+  .devices__main{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .devices_main-image{
+    top: 70%;
+    transform: translateY(-50%);
+  }
+
+  .contacts{
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+
+  .contacts__item:last-of-type{
+    margin: 0;
+  }
+
+  .section--security{
+    padding-bottom: 2.5rem;
+  }
 }
 
-@media screen and (max-width: 799px /*767px*/) {
-  /* 540-800 */
+@media screen and (max-width: 999px) {
+  .main{
+    background-size: 150% auto;
+  }
+  
+  .intro {
+    padding-bottom: 7.5rem;
+    padding-top: 5rem;
+  }
+  
+  .site-map__item{
+    width: auto;
+    margin-right: 3rem;
+  }
+  
+  .site-map__list-item,
+  .site-map__list-title{
+    text-align: left;
+    padding-right: 0;
+    padding-left: 0.625rem;
+  }
+  
+  .site-map__list-item::after{
+    right: initial;
+    left: 0;
+  }
+
+  .footer_row-1{
+    display: block;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* 540-768 */
 }
 
 @media screen and (max-width: 539px /*479px 419px*/) {
