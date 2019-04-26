@@ -1,4 +1,13 @@
-.idea
-node_modules
+#IDE
+*.iml
+.idea/
+.editorconfig
+
+#Generated files
+node_modules/
+dist/
 *.bundle.js
 *.log
+
+#Temp Files
+task_files/
