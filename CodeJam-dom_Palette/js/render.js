@@ -22,6 +22,8 @@ function toolItemTemplate(title, key, icon) {
   div.dataset.toolId = key;
   const image = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   image.classList.add('pallet__tools_item_icon');
+  image.setAttribute('height', '1.125rem');
+  image.setAttribute('width', '1.125rem');
   const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
   use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `/assets/img/${icon}#root`);
   image.appendChild(use);
@@ -34,7 +36,7 @@ function toolItemTemplate(title, key, icon) {
 }
 
 function renderColorPanel(config) {
-  const { current, prev, colors } = { ...config };
+  const { current, prev, ...colors } = { ...config };
   const colorsArr = Object.entries(colors).sort((a, b) => a[1].order - b[1].order);
 
   const lastParentNode = document.querySelector('.pallet__colors_last');
@@ -67,8 +69,8 @@ function renderTransformTools(config) {
   }
 }
 
-function renderPanel(config) {
-  renderColorPanel(config.colors);
+function renderPanel(config, colors) {
+  renderColorPanel(colors);
   renderColorTools(config.tools.color);
   renderTransformTools(config.tools.transform);
 }

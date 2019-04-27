@@ -177,6 +177,10 @@ a:focus{
   justify-content: space-around;
 }
 
+.pallet__tools_wrapper:not(:last-of-type){
+  margin-bottom: 1rem;
+}
+
 .pallet__tools_block:not(:last-of-type){
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
@@ -241,10 +245,13 @@ a:focus{
   grid-gap: 0.5rem;
 }
 
-.canvas__block{
-  background: rebeccapurple;
+.canvas__block.round {
+  border-radius: 50%;
 }
 
+.canvas__block {
+  background: gray;
+}
 /*--------------- Canvas Menu End ---------------*/
 
 /* * * * * * * * * * MAIN END * * * * * * * * * */

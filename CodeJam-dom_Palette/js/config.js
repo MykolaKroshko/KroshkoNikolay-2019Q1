@@ -1,28 +1,27 @@
-const palletConfig = {
-  colors: {
-    colors: {
-      green: {
-        color: '#41F795',
-        title: 'Green',
-        order: 1
-      },
-      grey: {
-        color: '#C4C4C4',
-        title: 'Grey',
-        order: 2
-      },
-      red: {
-        color: '#F74141',
-        title: 'Red',
-        order: 3
-      },
-      blue: {
-        color: '#41B6F7',
-        title: 'Blue',
-        order: 4
-      }
-    }
+const allowedColors = {
+  green: {
+    color: '#41F795',
+    title: 'Green',
+    order: 1
   },
+  grey: {
+    color: '#C4C4C4',
+    title: 'Grey',
+    order: 2
+  },
+  red: {
+    color: '#F74141',
+    title: 'Red',
+    order: 3
+  },
+  blue: {
+    color: '#41B6F7',
+    title: 'Blue',
+    order: 4
+  }
+};
+
+const palletConfig = {
   tools: {
     color: [
       {
@@ -100,11 +99,11 @@ const canvasDefaults = {
       order: 8
     },
     9: {
-      roundForm: false,
+      roundForm: true,
       color: 'grey',
       order: 9
     }
   }
 };
 
-export { palletConfig, canvasDefaults };
+export { allowedColors, palletConfig, canvasDefaults };
