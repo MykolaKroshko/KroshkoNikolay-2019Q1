@@ -9,11 +9,21 @@
   <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
   <link rel="stylesheet" href="./css/styles.css">
   <script defer src="./node_modules/jquery/dist/jquery.min.js"></script>
-  <script defer src="./node_modules/popper.js/dist/popper.min.js"></script>
+  <script defer src="./node_modules/popper.js/dist/popper.min.js" type="module"></script>
   <script defer src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script defer src="./js/script.js"></script>
 </head>
 <body>
-  
+  <header class="header shadow d-flex align-items-center">
+    <input type="checkbox" name="navigation__collapse" class="navigation__collapse hidden" id="navigation__collapse">
+    <label for="navigation__collapse" class="navigation__collapse_label">
+      <span class="navigation__collapse_label_text">toggle navigation visibility</span>
+    </label>
+    <nav class="navigation">
+    </nav>
+    <h1 class="header__title">CodeJam - Pallete</h1>
+    <button class="menu__collapse"><span>toggle navigation visibility</span></button>
+  </header>
+  <main class="main"></main>
 </body>
 </html>
