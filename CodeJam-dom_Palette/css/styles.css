@@ -159,6 +159,85 @@ a:focus{
 
 .main{
   flex: 1;
+  padding: 5rem 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
+
+/*--------------- Pallet Menu Start ---------------*/
+
+.pallet{
+  width: 14rem;
+  max-width: calc((100vmin - 4rem) * 0.2);
+  min-width: 12.5rem;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+.pallet__tools_wrapper{
+  flex: 1;
+}
+
+.pallet__tools_block:not(:last-of-type){
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.pallet__tools_item{
+  display: flex;
+  align-items: center;
+}
+
+.pallet__tools_item:hover{
+  cursor: pointer;
+}
+
+.pallet__tools_item:hover .pallet__colors_item_title{
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.pallet__colors_item_pic{
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  flex-shrink: 0;
+  margin: 1.125rem;
+}
+
+/*--------------- Pallet Menu End ---------------*/
+
+/*--------------- Canvas Menu Start ---------------*/
+
+.canvas__wrapper{
+  width:  calc((100vmin - 4rem) * 0.8);
+  max-width:  calc((100vw - 4rem - 12.5rem) * 0.8);
+  min-width: 256px;
+}
+
+.canvas{
+  position: relative;
+  height: 0;
+  padding: 100% 0 0 0;
+}
+.canvas__blocks{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.canvas__block{
+  background: rebeccapurple;
+}
+
+/*--------------- Canvas Menu End ---------------*/
 
 /* * * * * * * * * * MAIN END * * * * * * * * * */
