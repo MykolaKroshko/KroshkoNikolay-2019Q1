@@ -1,3 +1,4 @@
+// set of colors, that should by displayed in palette
 const allowedColors = {
   green: {
     color: '#41F795',
@@ -21,7 +22,8 @@ const allowedColors = {
   }
 };
 
-const palletConfig = {
+// settings for palette toolbox
+const paletteConfig = {
   tools: {
     color: [
       {
@@ -54,9 +56,11 @@ const palletConfig = {
   }
 };
 
+// default settings for canvas blocks
 const canvasDefaults = {
   currentColor: 'green',
   prevColor: 'grey',
+  currentMode: 'bucket',
   blocks: {
     1: {
       roundForm: false,
@@ -99,11 +103,11 @@ const canvasDefaults = {
       order: 8
     },
     9: {
-      roundForm: true,
+      roundForm: false,
       color: 'grey',
       order: 9
     }
   }
 };
 
-export { allowedColors, palletConfig, canvasDefaults };
+export { allowedColors, paletteConfig, canvasDefaults };
