@@ -258,7 +258,16 @@ a:focus{
 }
 
 .canvas__block {
-  background: gray;
+  position: relative;
+  transition-duration: 300ms;
+}
+
+.canvas__block:hover{
+  transform: scale(1.05);
+}
+
+.canvas__block.current{
+  border: 2px dashed olivedrab;
 }
 /*--------------- Canvas Menu End ---------------*/
 

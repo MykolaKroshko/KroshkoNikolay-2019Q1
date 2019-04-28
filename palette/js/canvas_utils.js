@@ -1,4 +1,4 @@
-import { allowedColors } from './config.js';
+import { allowedColors, buttonsBind } from './config.js';
 
 // set new canvas element position
 function updateBlockOrder(clone, order) {
@@ -51,11 +51,19 @@ function updatePaletteColors(currentColor, prevColor) {
   parent.replaceWith(clone);
 }
 
+function bindButtons(e) {
+  if (Object.keys(buttonsBind).indexOf(e.key) > -1) {
+    return buttonsBind[e.key];
+  }
+  return null;
+}
+
 export {
   updateBlockColor,
   updateBlockForm,
   updateBlockOrder,
   getNodeFromEvent,
   updateLocalSettings,
-  updatePaletteColors
+  updatePaletteColors,
+  bindButtons
 };

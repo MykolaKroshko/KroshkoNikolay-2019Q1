@@ -65,49 +65,73 @@ const canvasDefaults = {
     1: {
       roundForm: false,
       color: 'grey',
-      order: 1
+      x: 0,
+      y: 0
     },
     2: {
       roundForm: false,
       color: 'grey',
-      order: 2
+      x: 0,
+      y: 0
     },
     3: {
       roundForm: false,
       color: 'grey',
-      order: 3
+      x: 0,
+      y: 0
     },
     4: {
       roundForm: false,
       color: 'grey',
-      order: 4
+      x: 0,
+      y: 0
     },
     5: {
       roundForm: false,
       color: 'grey',
-      order: 5
+      x: 0,
+      y: 0
     },
     6: {
       roundForm: false,
       color: 'grey',
-      order: 6
+      x: 0,
+      y: 0
     },
     7: {
       roundForm: false,
       color: 'grey',
-      order: 7
+      x: 0,
+      y: 0
     },
     8: {
       roundForm: false,
       color: 'grey',
-      order: 8
+      x: 0,
+      y: 0
     },
     9: {
       roundForm: false,
       color: 'grey',
-      order: 9
+      x: 0,
+      y: 0
     }
   }
 };
 
-export { allowedColors, paletteConfig, canvasDefaults };
+const buttonsBind = {
+  '1': 'bucket',
+  b: 'bucket',
+  B: 'bucket',
+  '2': 'picker',
+  p: 'picker',
+  P: 'picker',
+  '3': 'move',
+  m: 'move',
+  M: 'move',
+  '4': 'transform',
+  t: 'transform',
+  T: 'transform'
+};
+
+export { allowedColors, paletteConfig, canvasDefaults, buttonsBind };

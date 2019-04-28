@@ -9,3 +9,21 @@
 ## Run eslint tests
 
 ```npm test```
+
+## Tools keyboard keys bind:
+- Color bucket:
+  - 1
+  - b
+  - B
+- Color Picker
+  - 2
+  - p
+  - P
+- Move
+  - 3
+  - m
+  - M
+- Transform
+  - 4
+  - t
+  - T
