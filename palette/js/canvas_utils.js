@@ -1,15 +1,18 @@
 import { allowedColors, buttonsBind } from './config.js';
 
 // set new canvas element position
-function updateBlockOrder(clone, order) {
-  clone.style.order = order;
+function updateBlockPosition(clone, x, y) {
+  const node = clone;
+  node.style.top = `${y}px`;
+  node.style.left = `${x}px`;
 }
 
 // set new canvas element color
 function updateBlockColor(clone, colorCode) {
   const hex = allowedColors[colorCode].color;
-  clone.dataset.colorId = colorCode;
-  clone.style.backgroundColor = hex;
+  const node = clone;
+  node.dataset.colorId = colorCode;
+  node.style.backgroundColor = hex;
 }
 
 // set new canvas element shape
@@ -33,7 +36,8 @@ function updateLocalSettings(settings) {
 }
 
 // update color of single item in color picker block of palette
-function updateItemColor(node, colorCode) {
+function updateItemColor(clone, colorCode) {
+  const node = clone;
   node.dataset.colorName = colorCode;
   const hex = allowedColors[colorCode].color;
   const nodePic = node.querySelector('.pallet__colors_item_pic');
@@ -51,6 +55,7 @@ function updatePaletteColors(currentColor, prevColor) {
   parent.replaceWith(clone);
 }
 
+// return binded mode id on hotkey press
 function bindButtons(e) {
   if (Object.keys(buttonsBind).indexOf(e.key) > -1) {
     return buttonsBind[e.key];
@@ -61,7 +66,7 @@ function bindButtons(e) {
 export {
   updateBlockColor,
   updateBlockForm,
-  updateBlockOrder,
+  updateBlockPosition,
   getNodeFromEvent,
   updateLocalSettings,
   updatePaletteColors,

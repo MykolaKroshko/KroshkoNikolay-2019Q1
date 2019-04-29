@@ -66,6 +66,7 @@ function canvasClick(e) {
   node.replaceWith(clone);
 }
 
+// select canvas block in move mode
 function canvasMouseDown(e) {
   if (settings.currentMode !== 'move') {
     return;
@@ -110,11 +111,41 @@ function changeMode(e) {
   updatePaletteMode(node);
 }
 
+// update current mode on hotkey press
 function changeModeOnKeyPress(e) {
   const mode = utils.bindButtons(e);
   if (mode && mode !== settings.currentMode) {
     applyNewPaletteMode(mode);
   }
+}
+
+// update position of canvas block on arrows press
+function changeBlockPositionOnKeyPress(e) {
+  if (settings.currentMode !== 'move' || !selectedBLock || e.key.indexOf('Arrow') !== 0) {
+    return;
+  }
+  e.preventDefault();
+  const direction = e.key.toLowerCase().replace('arrow', '');
+  const node = document.querySelector(`.canvas__block--${selectedBLock}`);
+  const id = selectedBLock;
+  const blockConfig = settings.blocks[id];
+  switch (direction) {
+    case 'down':
+      blockConfig.y += 3;
+      break;
+    case 'up':
+      blockConfig.y -= 3;
+      break;
+    case 'left':
+      blockConfig.x -= 3;
+      break;
+    case 'right':
+      blockConfig.x += 3;
+      break;
+    default:
+  }
+  utils.updateLocalSettings(settings);
+  utils.updateBlockPosition(node, blockConfig.x, blockConfig.y);
 }
 
 // apply all event listeners
@@ -124,6 +155,7 @@ function startEventListeners() {
   document.querySelector('.pallet__tools--colors').addEventListener('click', changeColor, true);
   document.querySelector('.pallet__tools--tools').addEventListener('click', changeMode, true);
   document.addEventListener('keypress', changeModeOnKeyPress, true);
+  document.addEventListener('keydown', changeBlockPositionOnKeyPress, true);
 }
 
 // apply canvas settings from config object on app start
@@ -132,13 +164,13 @@ function applyCanvasSettings(config) {
   const blocks = Object.entries(settings.blocks);
   for (let i = 0; i < blocks.length; i += 1) {
     const [key, value] = [...blocks[i]];
-    const { roundForm, color, order } = { ...value };
+    const { roundForm, color, x, y } = { ...value };
     const node = document.querySelector(`.canvas__block--${key}`);
     if (node) {
       const clone = node.cloneNode();
       utils.updateBlockForm(clone, roundForm);
       utils.updateBlockColor(clone, color);
-      utils.updateBlockOrder(clone, order);
+      utils.updateBlockPosition(clone, x, y);
       node.replaceWith(clone);
     }
   }
