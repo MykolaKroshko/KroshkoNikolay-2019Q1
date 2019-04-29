@@ -2,6 +2,8 @@ import * as utils from './canvas_utils.js';
 
 let settings;
 let selectedBLock = null;
+let mouseStartCoordinates = null;
+let pauseMouseMove = false;
 
 // if new color not same to current, change current and prev colors
 function updatePaletteColors(color) {
@@ -66,6 +68,36 @@ function canvasClick(e) {
   node.replaceWith(clone);
 }
 
+// move canvas block to its new position with mouse in move mode
+function canvasMouseMove(e, node) {
+  if (pauseMouseMove) {
+    return;
+  }
+  pauseMouseMove = true;
+  const config = settings.blocks[node.dataset.elementId];
+  const { x, y } = { ...config };
+  const targetX = x + e.pageX - mouseStartCoordinates.x;
+  const targetY = y + e.pageY - mouseStartCoordinates.y;
+  config.x = targetX;
+  config.y = targetY;
+  mouseStartCoordinates = {
+    x: e.pageX,
+    y: e.pageY
+  };
+  utils.updateBlockPosition(node, targetX, targetY);
+  pauseMouseMove = false;
+}
+
+let canvasMouseMoveDelegation;
+
+// release canvas block in move mode
+function canvasMouseUp() {
+  document.removeEventListener('mousemove', canvasMouseMoveDelegation, true);
+  document.removeEventListener('mouseup', canvasMouseUp, true);
+  mouseStartCoordinates = null;
+  utils.updateLocalSettings(settings);
+}
+
 // select canvas block in move mode
 function canvasMouseDown(e) {
   if (settings.currentMode !== 'move') {
@@ -84,6 +116,16 @@ function canvasMouseDown(e) {
     }
     node.classList.add('current');
   }
+  mouseStartCoordinates = {
+    x: e.pageX,
+    y: e.pageY
+  };
+  canvasMouseMoveDelegation = ev => canvasMouseMove(ev, node);
+  document.addEventListener('mousemove', canvasMouseMoveDelegation, true);
+  document.addEventListener('mouseup', canvasMouseUp, true);
+  document.ondragstart = function() {
+    return false;
+  };
 }
 
 // update current and prev colors selection
