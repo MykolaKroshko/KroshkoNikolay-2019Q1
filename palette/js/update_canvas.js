@@ -51,7 +51,7 @@ function canvasClick(e) {
   }
   const nodeIndex = node.dataset.elementId;
   if (settings.currentMode === 'picker') {
-    const nodeColor = node.dataset.colorId;
+    const nodeColor = node.dataset.colorHex;
     updatePaletteColors(nodeColor);
     return;
   }
@@ -137,7 +137,7 @@ function changeColor(e) {
   if (!node) {
     return;
   }
-  const nodeColor = node.dataset.colorName;
+  const nodeColor = node.dataset.colorHex;
   updatePaletteColors(nodeColor);
 }
 

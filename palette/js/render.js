@@ -1,10 +1,10 @@
 import { allowedColors, paletteConfig } from './config.js';
 
 // prepare dom node for item of palette colors panel from provided params
-function colorItemTemplate(color, title, key, tool = '') {
+function colorItemTemplate(color, title, tool = '') {
   const div = document.createElement('div');
   div.classList.add('pallet__tools_item');
-  div.dataset.colorName = key;
+  div.dataset.colorHex = color;
   if (tool) {
     div.dataset.toolId = tool;
   }
@@ -41,18 +41,16 @@ function toolItemTemplate(title, key, icon) {
 
 // render color panel from config object
 function renderColorPanel(colors, current, prev) {
-  const colorsArr = Object.entries(colors).sort((a, b) => a[1].order - b[1].order);
-
+  const colorKeys = Object.keys(colors);
   const lastParentNode = document.querySelector('.pallet__colors_last .dynamic');
-  const curr = colorItemTemplate(colors[current].color, 'Current color', current, 'current_color');
-  const last = colorItemTemplate(colors[prev].color, 'Prev color', prev, 'prev_color');
+  const curr = colorItemTemplate(current || colorKeys[0], 'Current color', 'current_color');
+  const last = colorItemTemplate(prev || colorKeys[0], 'Prev color', 'prev_color');
   lastParentNode.appendChild(curr);
   lastParentNode.appendChild(last);
 
   const fixedParentNode = document.querySelector('.pallet__colors_fixed .dynamic');
-  for (let i = 0; i < colorsArr.length; i += 1) {
-    const color = colorsArr[i];
-    const item = colorItemTemplate(color[1].color, color[1].title, color[0]);
+  for (let i = 0; i < colorKeys.length; i += 1) {
+    const item = colorItemTemplate(colorKeys[i], colors[colorKeys[i]]);
     fixedParentNode.appendChild(item);
   }
 }

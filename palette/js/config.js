@@ -1,25 +1,9 @@
 // set of colors, that should by displayed in palette
 const allowedColors = {
-  green: {
-    color: '#41F795',
-    title: 'Green',
-    order: 1
-  },
-  grey: {
-    color: '#C4C4C4',
-    title: 'Grey',
-    order: 2
-  },
-  red: {
-    color: '#F74141',
-    title: 'Red',
-    order: 3
-  },
-  blue: {
-    color: '#41B6F7',
-    title: 'Blue',
-    order: 4
-  }
+  '#41F795': 'Green',
+  '#C4C4C4': 'Grey',
+  '#F74141': 'Red',
+  '#41B6F7': 'Blue'
 };
 
 // settings for palette toolbox
@@ -58,61 +42,61 @@ const paletteConfig = {
 
 // default settings for canvas blocks
 const canvasDefaults = {
-  currentColor: 'green',
-  prevColor: 'grey',
+  currentColor: '#41F795',
+  prevColor: '#C4C4C4',
   currentMode: 'bucket',
   blocks: {
     1: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     2: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     3: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     4: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     5: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     6: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     7: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     8: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     },
     9: {
       roundForm: false,
-      color: 'grey',
+      color: '#C4C4C4',
       x: 0,
       y: 0
     }

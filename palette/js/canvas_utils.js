@@ -1,4 +1,4 @@
-import { allowedColors, buttonsBind } from './config.js';
+import { buttonsBind } from './config.js';
 
 // set new canvas element position
 function updateBlockPosition(clone, x, y) {
@@ -8,11 +8,10 @@ function updateBlockPosition(clone, x, y) {
 }
 
 // set new canvas element color
-function updateBlockColor(clone, colorCode) {
-  const hex = allowedColors[colorCode].color;
+function updateBlockColor(clone, color) {
   const node = clone;
-  node.dataset.colorId = colorCode;
-  node.style.backgroundColor = hex;
+  node.dataset.colorHex = color;
+  node.style.backgroundColor = color;
 }
 
 // set new canvas element shape
@@ -36,12 +35,11 @@ function updateLocalSettings(settings) {
 }
 
 // update color of single item in color picker block of palette
-function updateItemColor(clone, colorCode) {
+function updateItemColor(clone, colorHex) {
   const node = clone;
-  node.dataset.colorName = colorCode;
-  const hex = allowedColors[colorCode].color;
+  node.dataset.colorHex = colorHex;
   const nodePic = node.querySelector('.pallet__colors_item_pic');
-  nodePic.style.backgroundColor = hex;
+  nodePic.style.backgroundColor = colorHex;
 }
 
 // update colors for current and prev items in color picker block of palette
