@@ -4,13 +4,15 @@
 
 1. Clone project ```git clone https://github.com/rolling-scopes-school/KroshkoNikolay-2019Q1.git```
 2. Install dependencies ```npm i```
-3. Open `index.html` file in browser
+3. Run command ```npm start``` to start live server instance
+!!! Important !!! Running with just opening index.html in browser won't work due to usage of ES Modules and CORS policy restrictions. 
 
 ## Run eslint tests
 
-```npm test```
+- All dependencies have to be installed
+- run command ```npm test```
 
-## Tools keyboard keys bind:
+## Binded keyboard keys to switch between tools / mods:
 - Color bucket:
   - 1
   - b
