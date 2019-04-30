@@ -43,19 +43,32 @@ function updatePaletteMode(node) {
   }
 }
 
+// get hex color of clicked pixel and set it as current color in color picker mode
+function pickPageColor(e) {
+  if (settings.currentMode !== 'picker') {
+    return;
+  }
+  const x = e.clientX;
+  const y = e.clientY;
+  window.html2canvas(document.body).then(canvas => {
+    const ctx = canvas.getContext('2d');
+    const p = ctx.getImageData(x, y, 1, 1).data;
+    const hex = utils.rgbToHex(p[0], p[1], p[2]);
+    updatePaletteColors(hex);
+  });
+}
+
 // handle click on block in canvas section
 function canvasClick(e) {
+  if (settings.currentMode === 'picker') {
+    return;
+  }
   const node = utils.getNodeFromEvent(e);
   if (!node.classList.contains('canvas__block')) {
     return;
   }
-  const nodeIndex = node.dataset.elementId;
-  if (settings.currentMode === 'picker') {
-    const nodeColor = node.dataset.colorHex;
-    updatePaletteColors(nodeColor);
-    return;
-  }
   const clone = node.cloneNode();
+  const nodeIndex = clone.dataset.elementId;
   if (settings.currentMode === 'bucket') {
     settings.blocks[nodeIndex].color = settings.currentColor;
     utils.updateLocalSettings(settings);
@@ -137,6 +150,7 @@ function changeColor(e) {
   if (!node) {
     return;
   }
+  e.stopPropagation();
   const nodeColor = node.dataset.colorHex;
   updatePaletteColors(nodeColor);
 }
@@ -150,6 +164,7 @@ function changeMode(e) {
   if (!node) {
     return;
   }
+  e.stopPropagation();
   updatePaletteMode(node);
 }
 
@@ -173,16 +188,16 @@ function changeBlockPositionOnKeyPress(e) {
   const blockConfig = settings.blocks[id];
   switch (direction) {
     case 'down':
-      blockConfig.y += 3;
+      blockConfig.y += 1;
       break;
     case 'up':
-      blockConfig.y -= 3;
+      blockConfig.y -= 1;
       break;
     case 'left':
-      blockConfig.x -= 3;
+      blockConfig.x -= 1;
       break;
     case 'right':
-      blockConfig.x += 3;
+      blockConfig.x += 1;
       break;
     default:
   }
@@ -192,12 +207,13 @@ function changeBlockPositionOnKeyPress(e) {
 
 // apply all event listeners
 function startEventListeners() {
-  document.querySelector('.canvas__blocks').addEventListener('click', canvasClick, true);
-  document.querySelector('.canvas__blocks').addEventListener('mousedown', canvasMouseDown, true);
-  document.querySelector('.pallet__tools--colors').addEventListener('click', changeColor, true);
-  document.querySelector('.pallet__tools--tools').addEventListener('click', changeMode, true);
   document.addEventListener('keypress', changeModeOnKeyPress, true);
   document.addEventListener('keydown', changeBlockPositionOnKeyPress, true);
+  document.querySelector('.main').addEventListener('click', pickPageColor);
+  document.querySelector('.pallet__tools--colors').addEventListener('click', changeColor, true);
+  document.querySelector('.pallet__tools--tools').addEventListener('click', changeMode, true);
+  document.querySelector('.canvas__blocks').addEventListener('click', canvasClick, true);
+  document.querySelector('.canvas__blocks').addEventListener('mousedown', canvasMouseDown, true);
 }
 
 // apply canvas settings from config object on app start

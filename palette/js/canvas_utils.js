@@ -10,7 +10,6 @@ function updateBlockPosition(clone, x, y) {
 // set new canvas element color
 function updateBlockColor(clone, color) {
   const node = clone;
-  node.dataset.colorHex = color;
   node.style.backgroundColor = color;
 }
 
@@ -61,6 +60,20 @@ function bindButtons(e) {
   return null;
 }
 
+// get hex value of decimal number
+function decToHex(num) {
+  let hex = num.toString(16);
+  if (hex.length === 1) {
+    hex = `0${hex}`;
+  }
+  return hex;
+}
+
+// transform rgb color components to hex color string
+function rgbToHex(red, green, blue) {
+  return `#${decToHex(red)}${decToHex(green)}${decToHex(blue)}`;
+}
+
 export {
   updateBlockColor,
   updateBlockForm,
@@ -68,5 +81,6 @@ export {
   getNodeFromEvent,
   updateLocalSettings,
   updatePaletteColors,
-  bindButtons
+  bindButtons,
+  rgbToHex
 };
