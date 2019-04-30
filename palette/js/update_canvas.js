@@ -57,6 +57,19 @@ function pickPageColor(e) {
   });
 }
 
+// set node as a current current canvas block
+function setCurrentCanvasBlock(node) {
+  const id = node.dataset.elementId;
+  if (id !== selectedBLock) {
+    selectedBLock = id;
+    const current = document.querySelector('.canvas__block.current');
+    if (current) {
+      current.classList.remove('current');
+    }
+    node.classList.add('current');
+  }
+}
+
 // handle click on block in canvas section
 function canvasClick(e) {
   if (settings.currentMode === 'picker') {
@@ -76,22 +89,10 @@ function canvasClick(e) {
     settings.blocks[nodeIndex].roundForm = !settings.blocks[nodeIndex].roundForm;
     utils.updateLocalSettings(settings);
     utils.updateBlockForm(clone, settings.blocks[nodeIndex].roundForm);
+  } else if (settings.currentMode === 'move') {
+    setCurrentCanvasBlock(clone);
   }
   node.replaceWith(clone);
-}
-
-// set node as a current current canvas block
-function setCurrentCanvasBlock(node) {
-  const id = node.dataset.elementId;
-  console.log(node);
-  if (id !== selectedBLock) {
-    selectedBLock = id;
-    const current = document.querySelector('.canvas__block.current');
-    if (current) {
-      current.classList.remove('current');
-    }
-    node.classList.add('current');
-  }
 }
 
 // move canvas block to its new position with mouse in move mode
