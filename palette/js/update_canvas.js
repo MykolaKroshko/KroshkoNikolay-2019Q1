@@ -80,6 +80,20 @@ function canvasClick(e) {
   node.replaceWith(clone);
 }
 
+// set node as a current current canvas block
+function setCurrentCanvasBlock(node) {
+  const id = node.dataset.elementId;
+  console.log(node);
+  if (id !== selectedBLock) {
+    selectedBLock = id;
+    const current = document.querySelector('.canvas__block.current');
+    if (current) {
+      current.classList.remove('current');
+    }
+    node.classList.add('current');
+  }
+}
+
 // move canvas block to its new position with mouse in move mode
 function canvasBlockDrop(e) {
   if (settings.currentMode !== 'move') {
@@ -87,6 +101,23 @@ function canvasBlockDrop(e) {
   }
   const node = document.querySelector('.canvas__block.current');
   const config = settings.blocks[node.dataset.elementId];
+  const target = utils.getNodeFromEvent(e);
+  if (target.classList.contains('canvas__block')) {
+    const targetConfig = settings.blocks[target.dataset.elementId];
+    settings.blocks[node.dataset.elementId] = targetConfig;
+    settings.blocks[target.dataset.elementId] = config;
+    const targetX = targetConfig.x;
+    const targetY = targetConfig.y;
+    targetConfig.x = config.x;
+    targetConfig.y = config.y;
+    config.x = targetX;
+    config.y = targetY;
+    setCurrentCanvasBlock(target);
+    utils.updateNodeViewFromSettings(node, targetConfig);
+    utils.updateNodeViewFromSettings(target, config);
+    utils.updateLocalSettings(settings);
+    return;
+  }
   const { x, y } = { ...config };
   const targetX = x + e.pageX - mouseStartCoordinates.x;
   const targetY = y + e.pageY - mouseStartCoordinates.y;
@@ -106,21 +137,14 @@ function canvasBlockDragStart(e) {
   if (!node.classList.contains('canvas__block')) {
     return;
   }
-  const id = node.dataset.elementId;
-  if (id !== selectedBLock) {
-    selectedBLock = id;
-    const current = document.querySelector('.canvas__block.current');
-    if (current) {
-      current.classList.remove('current');
-    }
-    node.classList.add('current');
-  }
+  setCurrentCanvasBlock(node);
   mouseStartCoordinates = {
     x: e.pageX,
     y: e.pageY
   };
 }
 
+// update current and prev colors selection with color input change
 function pickerColorChange(e) {
   updatePaletteColors(e.target.value || '#000000');
 }
@@ -193,12 +217,12 @@ function changeBlockPositionOnKeyPress(e) {
 function startEventListeners() {
   document.addEventListener('keypress', changeModeOnKeyPress, true);
   document.addEventListener('keydown', changeBlockPositionOnKeyPress, true);
+  document.getElementById('colorPicker').addEventListener('change', pickerColorChange, true);
   document.querySelector('.main').addEventListener('click', pickPageColor);
   document.querySelector('.pallet__tools--colors').addEventListener('click', changeColor, true);
-  window.colorPicker.addEventListener('change', pickerColorChange, true);
   document.querySelector('.pallet__tools--tools').addEventListener('click', changeMode, true);
   document.querySelector('.canvas__blocks').addEventListener('click', canvasClick, true);
-  // document.querySelector('.canvas__blocks').addEventListener('mousedown', canvasMouseDown, true);
+
   document.addEventListener('drop', canvasBlockDrop);
   document.addEventListener('dragstart', canvasBlockDragStart);
   document.querySelector('.main').addEventListener('dragover', e => e.preventDefault());
@@ -210,14 +234,9 @@ function applyCanvasSettings(config) {
   const blocks = Object.entries(settings.blocks);
   for (let i = 0; i < blocks.length; i += 1) {
     const [key, value] = [...blocks[i]];
-    const { roundForm, color, x, y } = { ...value };
     const node = document.querySelector(`.canvas__block--${key}`);
     if (node) {
-      const clone = node.cloneNode();
-      utils.updateBlockForm(clone, roundForm);
-      utils.updateBlockColor(clone, color);
-      utils.updateBlockPosition(clone, x, y);
-      node.replaceWith(clone);
+      utils.updateNodeViewFromSettings(node, value);
     }
   }
   startEventListeners();

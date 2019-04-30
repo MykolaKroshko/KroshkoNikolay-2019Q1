@@ -22,6 +22,15 @@ function updateBlockForm(clone, form) {
   }
 }
 
+function updateNodeViewFromSettings(node, config) {
+  const clone = node.cloneNode();
+  const { roundForm, color, x, y } = { ...config };
+  updateBlockForm(clone, roundForm);
+  updateBlockColor(clone, color);
+  updateBlockPosition(clone, x, y);
+  node.replaceWith(clone);
+}
+
 // select target element from event obj
 function getNodeFromEvent(e) {
   const node = e.target;
@@ -75,6 +84,7 @@ function rgbToHex(red, green, blue) {
 }
 
 export {
+  updateNodeViewFromSettings,
   updateBlockColor,
   updateBlockForm,
   updateBlockPosition,
