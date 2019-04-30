@@ -167,7 +167,7 @@ a:focus{
 
 .main{
   flex: 1;
-  padding: 5rem 2rem 2.5rem;
+  padding: 2.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -220,6 +220,18 @@ a:focus{
   border: 1px solid #000000;
   flex-shrink: 0;
   margin: 1.125rem;
+}
+
+.pallet__tools_item_label{
+  margin: 0;
+  display: block;
+  flex: 1;
+  cursor: pointer;
+}
+
+.pallet__colors_item_pic--custom{
+  border: none;
+  border-radius: 0;
 }
 
 .pallet__tools_item_icon{

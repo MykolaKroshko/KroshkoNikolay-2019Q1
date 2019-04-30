@@ -141,6 +141,10 @@ function canvasMouseDown(e) {
   };
 }
 
+function pickerColorChange(e) {
+  updatePaletteColors(e.target.value || '#000000');
+}
+
 // update current and prev colors selection
 function changeColor(e) {
   let node = utils.getNodeFromEvent(e);
@@ -211,6 +215,7 @@ function startEventListeners() {
   document.addEventListener('keydown', changeBlockPositionOnKeyPress, true);
   document.querySelector('.main').addEventListener('click', pickPageColor);
   document.querySelector('.pallet__tools--colors').addEventListener('click', changeColor, true);
+  window.colorPicker.addEventListener('change', pickerColorChange, true);
   document.querySelector('.pallet__tools--tools').addEventListener('click', changeMode, true);
   document.querySelector('.canvas__blocks').addEventListener('click', canvasClick, true);
   document.querySelector('.canvas__blocks').addEventListener('mousedown', canvasMouseDown, true);
