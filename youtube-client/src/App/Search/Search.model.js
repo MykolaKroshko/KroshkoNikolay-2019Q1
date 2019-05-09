@@ -15,6 +15,9 @@ export default class SearchModel {
     if (!clips) {
       return false;
     }
+    if (clips.error) {
+      return clips;
+    }
     this.extractClipData(clips);
     const views = await this.fetchYoutubeData(`${this.views_url}${this.clipIds.join()}`);
     this.extractClipViews(views);

@@ -1,0 +1,16 @@
+.carousel{
+  flex: 1;
+  background: url('../../assets/img/youtube.svg') no-repeat center;
+  background-size: 17rem auto;
+}
+
+.carousel-error{
+  text-align: center;
+  color: #ff341d;
+  font-size: 1.5rem;
+}
+
+.carousel__list{
+  margin: 1rem;
+  padding: 0;
+}
