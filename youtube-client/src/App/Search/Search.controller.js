@@ -1,21 +1,27 @@
-// import SearchModel from './Search.model';
+import SearchModel from './Search.model';
 import SearchView from './Search.view';
 
 export default class Search {
   constructor(cb) {
-    this.state = {
-      url: '',
-    };
-
     this.cb = cb;
+    this.model = new SearchModel();
   }
 
   run() {
-    // const model = new SearchModel(this.state);
-    // const data = await model.getClipNames();
-
     const view = new SearchView('body');
     view.render();
-    console.log(this);
+    this.addListeners();
+  }
+
+  addListeners() {
+    document.querySelector('.search__clear_btn').addEventListener('click', () => {
+      window.search_input.value = '';
+    });
+
+    window.search_input.addEventListener('input', async (e) => {
+      const q = e.target.value;
+      const data = await this.model.getClips(q);
+      console.log(data);
+    });
   }
 }

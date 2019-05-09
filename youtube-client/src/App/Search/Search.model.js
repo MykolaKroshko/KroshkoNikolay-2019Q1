@@ -1,18 +1,73 @@
+import YOUTUBE_API_KEY from '../constants';
+
 export default class SearchModel {
-  constructor(state) {
-    this.state = state;
+  constructor() {
+    this.video_url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&type=video&part=snippet&maxResults=15&q=`;
+    this.views_url = `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&part=snippet,statistics&id=`;
+    this.controller = undefined;
+    this.signal = undefined;
+    this.clipData = {};
+    this.clipIds = [];
   }
 
-  static extractClipNames(data) {
-    return data.items.map(clip => clip.snippet.title);
+  async getClips(q) {
+    const clips = await this.fetchYoutubeData(`${this.video_url}${q}`);
+    if (!clips) {
+      return false;
+    }
+    this.extractClipData(clips);
+    const views = await this.fetchYoutubeData(`${this.views_url}${this.clipIds.join()}`);
+    this.extractClipViews(views);
+    return this.clipData;
   }
 
-  async getClipNames() {
-    const { url } = this.state;
+  extractClipData(data) {
+    const clipIds = [];
+    const clipData = {};
+    data.items.forEach((clip) => {
+      clipIds.push(clip.id.videoId);
+      clipData[clip.id.videoId] = {
+        title: clip.snippet.title,
+        description: clip.snippet.description,
+        channelTitle: clip.snippet.channelTitle,
+        publishedAt: clip.snippet.publishedAt,
+        images: clip.snippet.thumbnails,
+      };
+    });
+    this.clipIds = clipIds;
+    this.clipData = clipData;
+  }
 
-    const response = await fetch(url);
-    const data = await response.json();
+  extractClipViews(data) {
+    data.items.forEach((clip) => {
+      if (this.clipIds.indexOf(clip.id) > -1) {
+        this.clipData[clip.id].views = clip.statistics.viewCount;
+      }
+    });
+  }
 
-    return SearchModel.extractClipNames(data);
+  async fetchYoutubeData(link) {
+    if (this.controller !== undefined) {
+      this.controller.abort();
+    }
+
+    if ('AbortController' in window) {
+      this.controller = new AbortController();
+      this.signal = this.controller.signal;
+    }
+
+    const response = await fetch(
+      link,
+      {
+        signal: this.signal,
+      },
+    )
+      .then(res => res.json())
+      .catch(() => {
+        // eslint-disable-next-line
+        console.warn('Not finished request was canceled');
+      });
+
+    return response;
   }
 }
