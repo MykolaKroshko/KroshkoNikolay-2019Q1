@@ -1,5 +1,6 @@
-const YOUTUBE_API_KEY = 'AIzaSyDiXvrqq3ZHOPI5Zc2FmKmeh4FbmrW2fYw';
+// const YOUTUBE_API_KEY = 'AIzaSyDiXvrqq3ZHOPI5Zc2FmKmeh4FbmrW2fYw';
 // const YOUTUBE_API_KEY = 'AIzaSyAt7dRaA6BaNNnuZ3LBPw8TalLge5pEJQI';
+const YOUTUBE_API_KEY = 'AIzaSyCqLBxbhyPwYJ8o9g7LAuEJH1a3XQtwN94';
 
 
 export default YOUTUBE_API_KEY;

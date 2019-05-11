@@ -34,7 +34,7 @@ export default class SearchModel {
         description: clip.snippet.description,
         channelTitle: clip.snippet.channelTitle,
         publishedAt: clip.snippet.publishedAt,
-        images: clip.snippet.thumbnails,
+        image: clip.snippet.thumbnails.medium.url,
       };
     });
     this.clipIds = clipIds;
