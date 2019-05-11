@@ -4,6 +4,7 @@ import SearchView from './Search.view';
 export default class Search {
   constructor(cb) {
     this.cb = cb;
+    this.timer = null;
   }
 
   run() {
@@ -19,11 +20,16 @@ export default class Search {
       window.search_input.value = '';
     });
 
-    window.search_input.addEventListener('input', async (e) => {
+    window.search_input.addEventListener('input', (e) => {
       const q = e.target.value;
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
       if (q.length > 3) {
-        const data = await this.model.getClips(q);
-        this.cb(data);
+        this.timer = setTimeout(async () => {
+          const data = await this.model.getClips(q);
+          this.cb(data);
+        }, 1000);
       }
     });
   }

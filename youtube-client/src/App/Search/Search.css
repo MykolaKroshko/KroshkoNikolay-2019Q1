@@ -24,6 +24,10 @@
   padding: 0 3rem;
 }
 
+.search__input:invalid{
+  color: #ff0000;
+}
+
 .search__clear_btn{
   position: absolute;
   height: 2.25rem;

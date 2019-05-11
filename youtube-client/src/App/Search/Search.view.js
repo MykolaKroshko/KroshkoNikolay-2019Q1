@@ -9,7 +9,7 @@ export default class SearchView {
     const div = document.createElement('div');
     div.classList.add('search');
     div.innerHTML = `
-      <input class="search__input" id="search_input" type="text"/>
+      <input class="search__input" minlength="4" id="search_input" type="text"/>
       <button class="search__clear_btn" type="button"></button>
     `;
     document.querySelector(this.selector).appendChild(div);
