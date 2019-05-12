@@ -47,14 +47,13 @@ function pickPageColor(e) {
   if (settings.currentMode !== 'picker') {
     return;
   }
-  const x = e.clientX;
-  const y = e.clientY;
-  window.html2canvas(document.body).then(canvas => {
-    const ctx = canvas.getContext('2d');
-    const p = ctx.getImageData(x, y, 1, 1).data;
-    const hex = utils.rgbToHex(p[0], p[1], p[2]);
-    updatePaletteColors(hex);
-  });
+  let color = e.target.style.backgroundColor;
+  if (!color) {
+    color = 'rbg(255, 255, 255)';
+  }
+  color = color.replace(/.*\((.*?)\).*/, '$1').split(',');
+  const hex = utils.rgbToHex(color[0], color[1], color[2]);
+  updatePaletteColors(hex);
 }
 
 // set node as a current current canvas block

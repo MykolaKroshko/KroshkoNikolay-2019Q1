@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "html2canvas": "^1.0.0-rc.1",
     "live-server": "^1.2.1",
     "normalize.css": "^8.0.1"
   },

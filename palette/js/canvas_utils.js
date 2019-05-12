@@ -71,7 +71,7 @@ function bindButtons(e) {
 
 // get hex value of decimal number
 function decToHex(num) {
-  let hex = num.toString(16);
+  let hex = parseInt(num, 10).toString(16);
   if (hex.length === 1) {
     hex = `0${hex}`;
   }
