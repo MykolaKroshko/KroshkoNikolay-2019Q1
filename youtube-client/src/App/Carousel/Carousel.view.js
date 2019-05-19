@@ -4,6 +4,9 @@ export default class CarouselView {
   constructor(selector) {
     this.selector = selector;
     this.clips = null;
+    this.carousel = null;
+    this.navigation = null;
+    this.lastPage = 0;
   }
 
   render() {
@@ -90,6 +93,12 @@ export default class CarouselView {
     this.navigation.innerHTML = html;
   }
 
+  goToPage(page, node) {
+    document.documentElement.style.setProperty('--current-page', page);
+    this.navigation.querySelector('.carousel__item_button--current').classList.remove('carousel__item_button--current');
+    node.classList.add('carousel__item_button--current');
+  }
+
   static clipTemplate(clip, id) {
     return `
       <li class='carousel__list_item'>
@@ -97,7 +106,7 @@ export default class CarouselView {
           <div class='clip__image_container'>
             <img class='clip__image' src='${clip.image}'/>
             <span class='clip__title'>
-              <a href="https://www.youtube.com/watch?v=${id}" target="_blank">${clip.title}</a>
+              <a href="https://www.youtube.com/watch?v=${id}" tabindex="-1" target="_blank">${clip.title}</a>
             </span>
           </div>
           <div class='clip__texts'>

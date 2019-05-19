@@ -16,10 +16,17 @@ export default class Carousel {
   }
 
   addEventListeners() {
-    console.log('addEventListeners');
     window.addEventListener('resize', () => {
-      console.log('resize');
       this.view.updateNavbar();
+    });
+
+    window.carousel__nav.addEventListener('click', (e) => {
+      const el = e.target;
+      if (el.classList.contains('carousel__item_button')) {
+        if (!el.classList.contains('carousel__item_button--current')) {
+          this.view.goToPage(el.dataset.page, el);
+        }
+      }
     });
   }
 }
