@@ -4,17 +4,21 @@ import Search from './Search/Search.controller';
 import Carousel from './Carousel/Carousel.controller';
 
 export default class App {
-  constructor() {
-    this.state = {};
-  }
-
   searchCallback(clips) {
     this.state = clips;
-    this.carousel.showClips(this.state);
+    this.carousel.showClips(clips);
+  }
+
+  nextPageCallback(clips) {
+    this.state = clips;
+    this.carousel.addClips(clips);
   }
 
   run() {
-    const search = new Search(this.searchCallback.bind(this));
+    const search = new Search(
+      this.searchCallback.bind(this),
+      this.nextPageCallback.bind(this),
+    );
     search.run();
     this.carousel = new Carousel();
     this.carousel.run();

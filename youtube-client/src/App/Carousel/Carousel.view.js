@@ -3,6 +3,7 @@ import './Carousel.css';
 export default class CarouselView {
   constructor(selector) {
     this.selector = selector;
+    this.clips = null;
   }
 
   render() {
@@ -18,17 +19,36 @@ export default class CarouselView {
 
   updateClips(clips) {
     if (!clips || Object.keys(clips).length === 0) {
+      this.clips = null;
       this.carousel.innerHTML = '';
+      this.carousel.classList.add('empty');
+      this.carousel.classList.remove('error');
     } else if (clips.error) {
+      this.clips = null;
       this.carousel.innerHTML = `
         <div class='carousel-error'>ERROR ${clips.error.code}: ${clips.error.message}</div>
       `;
+      this.carousel.classList.add('error');
+      this.carousel.classList.remove('empty');
     } else {
-      this.renderClips(clips);
+      this.clips = clips;
+      const html = CarouselView.renderClips(clips);
+      this.carousel.innerHTML = html;
+      this.carousel.classList.remove('error');
+      this.carousel.classList.remove('empty');
     }
   }
 
-  renderClips(clips) {
+  appendClips(clips) {
+    if (clips || Object.keys(clips).length > 0 || !clips.error) {
+      if (!this.carousel.classList.contains('error') && !this.carousel.classList.contains('empty')) {
+        const html = CarouselView.renderClips(clips);
+        this.carousel.innerHTML += html;
+      }
+    }
+  }
+
+  static renderClips(clips) {
     const ids = Object.keys(clips);
     let html = '';
     for (let i = 0; i < ids.length; i += 1) {
@@ -36,7 +56,7 @@ export default class CarouselView {
       const data = clips[id];
       html += CarouselView.clipTemplate(data, id);
     }
-    this.carousel.innerHTML = html;
+    return html;
   }
 
   static clipTemplate(clip, id) {

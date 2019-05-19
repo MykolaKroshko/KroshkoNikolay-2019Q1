@@ -36,5 +36,6 @@
   right: 0;
   background: url('../../assets/img/close.svg') no-repeat center;
   background-size: 35%;
-  border: none
+  border: none;
+  cursor: pointer;
 }

@@ -8,10 +8,18 @@ export default class SearchModel {
     this.signal = undefined;
     this.clipData = {};
     this.clipIds = [];
+    this.nextPage = '';
+    this.query = '';
   }
 
   async getClips(q) {
-    const clips = await this.fetchYoutubeData(`${this.video_url}${q}`);
+    let clips;
+    if (q) {
+      this.query = q;
+      clips = await this.fetchYoutubeData(`${this.video_url}${this.query}`);
+    } else {
+      clips = await this.fetchYoutubeData(`${this.video_url}${this.query}&pageToken=${this.nextPage}`);
+    }
     if (!clips) {
       return false;
     }
@@ -39,6 +47,7 @@ export default class SearchModel {
     });
     this.clipIds = clipIds;
     this.clipData = clipData;
+    this.nextPage = data.nextPageToken || '';
   }
 
   extractClipViews(data) {

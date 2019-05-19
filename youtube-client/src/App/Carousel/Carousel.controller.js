@@ -9,4 +9,8 @@ export default class Carousel {
   showClips(clips) {
     this.view.updateClips(clips);
   }
+
+  addClips(clips) {
+    this.view.appendClips(clips);
+  }
 }

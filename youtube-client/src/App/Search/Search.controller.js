@@ -2,8 +2,9 @@ import SearchModel from './Search.model';
 import SearchView from './Search.view';
 
 export default class Search {
-  constructor(cb) {
-    this.cb = cb;
+  constructor(searchCB, nextPageCB) {
+    this.searchCB = searchCB;
+    this.nextPageCB = nextPageCB;
     this.timer = null;
   }
 
@@ -28,7 +29,7 @@ export default class Search {
       if (q.length > 3) {
         this.timer = setTimeout(async () => {
           const data = await this.model.getClips(q);
-          this.cb(data);
+          this.searchCB(data);
         }, 1000);
       }
     });
