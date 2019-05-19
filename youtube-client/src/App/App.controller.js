@@ -5,12 +5,10 @@ import Carousel from './Carousel/Carousel.controller';
 
 export default class App {
   searchCallback(clips) {
-    this.state = clips;
     this.carousel.showClips(clips);
   }
 
   nextPageCallback(clips) {
-    this.state = clips;
     this.carousel.addClips(clips);
   }
 
