@@ -94,9 +94,11 @@ export default class CarouselView {
   }
 
   goToPage(page, node) {
-    document.documentElement.style.setProperty('--current-page', page);
+    const pageInt = parseInt(page, 10);
+    document.documentElement.style.setProperty('--current-page', pageInt);
     this.navigation.querySelector('.carousel__item_button--current').classList.remove('carousel__item_button--current');
     node.classList.add('carousel__item_button--current');
+    return (pageInt + 1) === this.lastPage;
   }
 
   static clipTemplate(clip, id) {

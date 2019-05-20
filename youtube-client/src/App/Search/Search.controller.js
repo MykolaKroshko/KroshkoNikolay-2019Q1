@@ -34,4 +34,9 @@ export default class Search {
       }
     });
   }
+
+  async getNextPage() {
+    const data = await this.model.getClips();
+    this.nextPageCB(data);
+  }
 }

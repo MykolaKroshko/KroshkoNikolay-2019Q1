@@ -8,17 +8,23 @@ export default class App {
     this.carousel.showClips(clips);
   }
 
-  nextPageCallback(clips) {
+  renderNextPageCallback(clips) {
     this.carousel.addClips(clips);
   }
 
+  requestNextPageCallback() {
+    this.search.getNextPage();
+  }
+
   run() {
-    const search = new Search(
+    this.search = new Search(
       this.searchCallback.bind(this),
-      this.nextPageCallback.bind(this),
+      this.renderNextPageCallback.bind(this),
     );
-    search.run();
-    this.carousel = new Carousel();
+    this.search.run();
+    this.carousel = new Carousel(
+      this.requestNextPageCallback.bind(this),
+    );
     this.carousel.run();
   }
 }

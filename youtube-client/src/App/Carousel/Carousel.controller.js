@@ -1,6 +1,10 @@
 import CarouselView from './Carousel.view';
 
 export default class Carousel {
+  constructor(nextPageCB) {
+    this.nextPageCB = nextPageCB;
+  }
+
   run() {
     this.view = new CarouselView('body');
     this.view.render();
@@ -24,7 +28,10 @@ export default class Carousel {
       const el = e.target;
       if (el.classList.contains('carousel__item_button')) {
         if (!el.classList.contains('carousel__item_button--current')) {
-          this.view.goToPage(el.dataset.page, el);
+          const last = this.view.goToPage(el.dataset.page, el);
+          if (last) {
+            this.nextPageCB();
+          }
         }
       }
     });
