@@ -35,5 +35,19 @@ export default class Carousel {
         }
       }
     });
+
+    window.carousel__nav.addEventListener('mousedown', (e) => {
+      const el = e.target;
+      if (el.classList.contains('carousel__item_button')) {
+        el.classList.add('clicked');
+      }
+    });
+
+    window.addEventListener('mouseup', () => {
+      const clicked = window.carousel__nav.querySelector('.clicked');
+      if (clicked) {
+        clicked.classList.remove('clicked');
+      }
+    });
   }
 }

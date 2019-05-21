@@ -87,6 +87,7 @@ export default class CarouselView {
           <button type="button" data-page="${i}" class="carousel__item_button ${i === currentPage ? 'carousel__item_button--current' : ''}">
             ${i + 1}
           </button>
+          <div class="carousel__nav_tooltip">${i + 1}</div>
         </li>
       `;
     }
