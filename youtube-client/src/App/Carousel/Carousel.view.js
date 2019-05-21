@@ -7,6 +7,8 @@ export default class CarouselView {
     this.carousel = null;
     this.navigation = null;
     this.lastPage = 0;
+    this.styles = getComputedStyle(document.documentElement);
+    this.pageFirstClip = 0;
   }
 
   render() {
@@ -28,11 +30,14 @@ export default class CarouselView {
   }
 
   updateClips(clips) {
+    const el = this.carousel.querySelectorAll('.carousel__item_button')[0];
+    this.goToPage(0, el);
     if (!clips || Object.keys(clips).length === 0) {
       this.clips = null;
       this.carousel.innerHTML = '';
       this.carousel.classList.add('empty');
       this.carousel.classList.remove('error');
+      this.updateNavbar();
     } else if (clips.error) {
       this.clips = null;
       this.carousel.innerHTML = `
@@ -40,6 +45,7 @@ export default class CarouselView {
       `;
       this.carousel.classList.add('error');
       this.carousel.classList.remove('empty');
+      this.updateNavbar();
     } else {
       this.clips = clips;
       const html = this.renderClips(clips);
@@ -73,18 +79,18 @@ export default class CarouselView {
 
   updateNavbar() {
     if (!this.clips) {
+      this.navigation.innerHTML = '';
       return;
     }
     const clipsNumber = Object.keys(this.clips).length || 0;
-    const styles = getComputedStyle(document.documentElement);
-    const perPage = parseInt(styles.getPropertyValue('--clips-per-page'), 10);
-    const currentPage = parseInt(styles.getPropertyValue('--current-page'), 10);
+    const perPage = parseInt(this.styles.getPropertyValue('--clips-per-page'), 10);
+    const currentPage = parseInt(this.styles.getPropertyValue('--current-page'), 10);
     this.lastPage = Math.floor(clipsNumber / perPage);
     let html = '';
     for (let i = 0; i < this.lastPage; i += 1) {
       html += `
         <li class="carousel__nav_item">
-          <button type="button" data-page="${i}" class="carousel__item_button ${i === currentPage ? 'carousel__item_button--current' : ''}">
+          <button type="button" data-page="${i}" class="carousel__item_button ${i === currentPage ? 'carousel__item_button--current' : 'asd'}">
             ${i + 1}
           </button>
           <div class="carousel__nav_tooltip">${i + 1}</div>
@@ -95,10 +101,17 @@ export default class CarouselView {
   }
 
   goToPage(page, node) {
+    const clipsPerPage = parseInt(this.styles.getPropertyValue('--clips-per-page'), 10);
+    this.pageFirstClip = page * clipsPerPage;
     const pageInt = parseInt(page, 10);
     document.documentElement.style.setProperty('--current-page', pageInt);
-    this.navigation.querySelector('.carousel__item_button--current').classList.remove('carousel__item_button--current');
-    node.classList.add('carousel__item_button--current');
+    const current = this.navigation.querySelector('.carousel__item_button--current');
+    if (current) {
+      current.classList.remove('carousel__item_button--current');
+    }
+    if (node) {
+      node.classList.add('carousel__item_button--current');
+    }
     return (pageInt + 1) === this.lastPage;
   }
 
