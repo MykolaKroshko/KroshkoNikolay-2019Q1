@@ -100,6 +100,19 @@ export default class CarouselView {
     this.navigation.innerHTML = html;
   }
 
+  updateCurrentPage() {
+    const perPage = parseInt(this.styles.getPropertyValue('--clips-per-page'), 10);
+    const currentPage = parseInt(this.styles.getPropertyValue('--current-page'), 10);
+    const targetCLip = perPage * currentPage;
+    if (targetCLip === this.pageFirstClip) {
+      return;
+    }
+    const targetPage = Math.floor(this.pageFirstClip / perPage);
+    this.pageFirstClip = targetPage * perPage;
+    const el = this.carousel.querySelectorAll(`.carousel__item_button[data-page='${targetPage}']`);
+    this.goToPage(targetPage, el);
+  }
+
   goToPage(page, node) {
     const clipsPerPage = parseInt(this.styles.getPropertyValue('--clips-per-page'), 10);
     this.pageFirstClip = page * clipsPerPage;

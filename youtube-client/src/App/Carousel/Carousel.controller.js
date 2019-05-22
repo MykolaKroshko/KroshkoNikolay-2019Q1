@@ -22,6 +22,7 @@ export default class Carousel {
   addEventListeners() {
     window.addEventListener('resize', () => {
       this.view.updateNavbar();
+      this.view.updateCurrentPage();
     });
 
     window.carousel__nav.addEventListener('click', (e) => {
