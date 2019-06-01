@@ -12,10 +12,14 @@ import { PaletteService } from './palette.service';
 import { CanvasBlockComponent } from './canvas-block';
 import { PaletteComponent } from './palette.component';
 import { PreviewComponent } from './preview';
+import { FrameComponent } from './frames-carousel';
+import { FramesCarouselComponent } from './frames-carousel';
 
 @NgModule({
   declarations: [
     CanvasBlockComponent,
+    FrameComponent,
+    FramesCarouselComponent,
     PaletteComponent,
     PreviewComponent
   ],

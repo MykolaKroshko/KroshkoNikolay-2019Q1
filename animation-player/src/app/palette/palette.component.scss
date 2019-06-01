@@ -5,7 +5,7 @@
 }
 
 .instruments-wrapper,
-.frames-carousel,
+.frames-carousel-wrapper,
 .preview-wrapper{
   flex-shrink: 0;
 }
@@ -20,6 +20,6 @@
 }
 
 .preview-wrapper{
-  width: 13.125rem;
-  padding-left: 0.625rem;
+  width: 13.75rem;
+  padding: 0 0.625rem;
 }
