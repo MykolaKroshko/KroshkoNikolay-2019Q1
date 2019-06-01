@@ -7,6 +7,8 @@ import { routes } from './palette.routes';
 
 import { HeaderModule } from '../header';
 
+import { PaletteService } from './palette.service';
+
 import { PaletteComponent } from './palette.component';
 
 @NgModule({
@@ -20,11 +22,8 @@ import { PaletteComponent } from './palette.component';
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
-  exports: [
-
-  ],
   providers: [
-
+    PaletteService,
   ]
 })
 export class PaletteModule {

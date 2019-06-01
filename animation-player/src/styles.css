@@ -28,3 +28,18 @@ html{
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none;
 }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #666;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(50, 50, 50, 0.4);
+}

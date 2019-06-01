@@ -1,0 +1,25 @@
+.palette-body{
+  height: calc(100% - 3rem - 1.125rem);
+  display: flex;
+  padding: 0.625rem 0;
+}
+
+.instruments-wrapper,
+.frames-carousel,
+.preview-wrapper{
+  flex-shrink: 0;
+}
+
+.instruments-wrapper{
+  max-width: 6.25rem;
+}
+
+.frame-wrapper{
+  flex: 1;
+  background-color: #cccccc;
+}
+
+.preview-wrapper{
+  width: 13.125rem;
+  padding-left: 0.625rem;
+}
