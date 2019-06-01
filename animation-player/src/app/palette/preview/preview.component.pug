@@ -1,0 +1,11 @@
+canvas-block()
+.range__wrapper
+  span.range__display {{ currentFPS + ' FPS'}}
+  input.range__input(
+    type="range",
+    name="range",
+    min="0",
+    max="24",
+    step="1",
+    [(ngModel)]="currentFPS"
+  )

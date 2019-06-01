@@ -5,6 +5,10 @@ html{
   color: rgba(0, 0, 0, 0.54);
 }
 
+*{
+  box-sizing: border-box;
+}
+
 .shadow{
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }

@@ -9,11 +9,15 @@ import { HeaderModule } from '../header';
 
 import { PaletteService } from './palette.service';
 
+import { CanvasBlockComponent } from './canvas-block';
 import { PaletteComponent } from './palette.component';
+import { PreviewComponent } from './preview';
 
 @NgModule({
   declarations: [
-    PaletteComponent
+    CanvasBlockComponent,
+    PaletteComponent,
+    PreviewComponent
   ],
   imports: [
     CommonModule,
