@@ -8,5 +8,8 @@ dist/
 *.bundle.js
 *.log
 
+#Pug
+animation-player/src/app/**/*.html
+
 #Temp Files
 task_files/
