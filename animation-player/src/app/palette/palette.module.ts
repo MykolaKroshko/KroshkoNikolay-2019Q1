@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 import { routes } from './palette.routes';
+
+import { HeaderModule } from '../header';
 
 import { PaletteComponent } from './palette.component';
 
@@ -14,7 +15,7 @@ import { PaletteComponent } from './palette.component';
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
+    HeaderModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),

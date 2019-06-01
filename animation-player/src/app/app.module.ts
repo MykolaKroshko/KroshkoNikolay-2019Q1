@@ -8,7 +8,6 @@ import { ROUTES } from './app.route';
 import { PaletteModule } from './palette/palette.module';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header';
 
 @NgModule({
   imports: [
@@ -23,7 +22,6 @@ import { HeaderComponent } from './header';
   ],
   declarations: [
     AppComponent,
-    HeaderComponent,
   ],
   bootstrap: [
     AppComponent
