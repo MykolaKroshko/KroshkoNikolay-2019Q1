@@ -1,4 +1,4 @@
-canvas-block()
+canvas-block([picture]="currentFrame", [size]="200")
 .range__wrapper
   span.range__display {{ currentFPS + ' FPS'}}
   input.range__input(
@@ -7,5 +7,6 @@ canvas-block()
     min="0",
     max="24",
     step="1",
-    [(ngModel)]="currentFPS"
+    [(ngModel)]="currentFPS",
+    (ngModelChange)="onFPSChange($event)"
   )

@@ -8,7 +8,7 @@ import { PaletteService } from '../palette.service';
   styleUrls: [ './frames-carousel.component.scss' ]
 })
 export class FramesCarouselComponent implements OnInit, OnDestroy {
-  public framesList: object[] = [];
+  public framesList: object[][] = [];
   private framesListSub: Subscription = null;
 
   constructor(

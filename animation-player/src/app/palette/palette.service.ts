@@ -7,7 +7,7 @@ export class PaletteService {
   public framesList;
   public currentFrame;
 
-  private framesListSubject = new BehaviorSubject<object[]>([]);
+  private framesListSubject = new BehaviorSubject<object[][]>([]);
   private currentFrameSubject = new BehaviorSubject<number>(0);
   private paletteSizeSubject = new BehaviorSubject<number>(32);
 
