@@ -4,10 +4,12 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { CanvasBlockComponent } from './canvas-block';
 import { IconComponent } from './icon';
 
 @NgModule({
   declarations: [
+    CanvasBlockComponent,
     IconComponent,
   ],
   imports: [
@@ -18,6 +20,7 @@ import { IconComponent } from './icon';
     RouterModule,
   ],
   exports: [
+    CanvasBlockComponent,
     IconComponent,
   ],
   providers: [

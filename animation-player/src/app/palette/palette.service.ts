@@ -57,11 +57,15 @@ export class PaletteService {
     }
   }
 
+  public changeCurrentFrame(index){
+    this.currentFrameSubject.next(index);
+  }
+
   private getRandomColor() {
     return '#'+Math.floor(Math.random()*16777215).toString(16);
   }
 
-  public getObservableValue(obser) {
+  private getObservableValue(obser) {
     return obser.source._value;
   }
 }

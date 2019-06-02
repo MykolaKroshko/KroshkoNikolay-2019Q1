@@ -1,5 +1,5 @@
 .carousel
-  frame-item(*ngFor="let frame of framesList; let i = index", [frame]="frame", [frameIndex]="i")
+  frame-item(*ngFor="let frame of framesList; let i = index", [frame]="frame", [frameIndex]="i", (click)="onCarouselFrameClick(i)")
   button.new_frame_btn(type="button", (click)="onNewFrameBtnClick()")
     icon.btn_icon(name="plus")
     | Add new frame

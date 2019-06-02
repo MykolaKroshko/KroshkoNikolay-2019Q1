@@ -18,7 +18,6 @@ export class FramesCarouselComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     this.framesListSub = this.plSrv.framesList.subscribe((frames) => {
       this.framesList = frames;
-      console.log(frames);
     });
   }
 
@@ -28,5 +27,9 @@ export class FramesCarouselComponent implements OnInit, OnDestroy {
 
   public onNewFrameBtnClick() {
     this.plSrv.appendNewFrame();
+  }
+
+  public onCarouselFrameClick(index) {
+    this.plSrv.changeCurrentFrame(index);
   }
 }
