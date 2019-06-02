@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './palette.routes';
 
 import { HeaderModule } from '../header';
+import { UtilsModule } from '../utils/utils.module';
 
 import { PaletteService } from './palette.service';
 
@@ -27,6 +28,7 @@ import { FramesCarouselComponent } from './frames-carousel';
     CommonModule,
     HeaderModule,
     FormsModule,
+    UtilsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],

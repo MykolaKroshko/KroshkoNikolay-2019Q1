@@ -20,7 +20,7 @@
     "start": "run-p pug-it:w server",
     "server": "ng serve --port 4000",
     "build": "ng build",
-    "prebuild": "pug-it",
+    "prebuild": "npm run pug-it",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

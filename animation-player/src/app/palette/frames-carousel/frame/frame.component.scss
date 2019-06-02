@@ -1,0 +1,29 @@
+.frame{
+  border: #444 3px solid;
+  border-radius: 3px;
+  margin: 0.375rem 0;
+  width: 6rem;
+  height: 6rem;
+  position: relative;
+
+  &:hover{
+    border-color: #999;
+  }
+
+  &.active{
+    border-color: #ffd700;
+
+    &::after{
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(100% + 3px);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0.375rem 0 0.375rem 0.375rem;
+      border-color: transparent transparent transparent #ffd700;
+    }
+  }
+}
