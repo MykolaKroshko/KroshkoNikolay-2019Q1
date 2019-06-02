@@ -10,16 +10,18 @@ import { UtilsModule } from '../utils/utils.module';
 
 import { PaletteService } from './palette.service';
 
-import { PaletteComponent } from './palette.component';
-import { PreviewComponent } from './preview';
 import { FrameComponent } from './frames-carousel';
 import { FramesCarouselComponent } from './frames-carousel';
+import { PaletteComponent } from './palette.component';
+import { PaintCanvasComponent } from './paint-canvas';
+import { PreviewComponent } from './preview';
 
 @NgModule({
   declarations: [
     FrameComponent,
     FramesCarouselComponent,
     PaletteComponent,
+    PaintCanvasComponent,
     PreviewComponent
   ],
   imports: [

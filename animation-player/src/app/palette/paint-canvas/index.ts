@@ -1,0 +1,1 @@
+export { PaintCanvasComponent } from './paint-canvas.component';

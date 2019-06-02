@@ -33,6 +33,7 @@ export class FrameComponent implements OnDestroy, OnInit{
   public onDeleteBynClick() {
     this.plSrv.removeFrame(this.frameIndex);
   }
+  
   public onCopyBynClick() {
     this.plSrv.duplicateFrame(this.frameIndex);
   }
