@@ -8,6 +8,11 @@
 
   &:hover{
     border-color: #999;
+
+    .frame__delete_button,
+    .frame__copy_button{
+      opacity: 1;
+    }  
   }
 
   &.active{
@@ -28,15 +33,40 @@
   }
 
   &__number{
-    position: absolute;
     top: 0;
     left: 0;
-    width: 1.875rem;
-    height: 1.875rem;
     background-color: #ffd700;
     line-height: 1.875rem;
     text-align: center;
     font-weight: bold;
     font-size: 0.875rem;
+  }
+
+  &__delete_button{
+    top: 0;
+  }
+
+  &__copy_button{
+    bottom: 0;
+  }
+
+  &__delete_button,
+  &__copy_button{
+    right: 0;
+    opacity: 0;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: none;
+
+    ::ng-deep svg{
+      fill: #fff;
+    }
+  }
+
+  &__number,
+  &__delete_button,
+  &__copy_button{
+    position: absolute;
+    width: 1.875rem;
+    height: 1.875rem;
   }
 }

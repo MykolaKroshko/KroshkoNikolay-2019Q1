@@ -1,3 +1,7 @@
 .frame([ngClass]="{'active': currentIndex === frameIndex}")
   span.frame__number {{frameIndex}}
   canvas-block([picture]="frame", [size]="96")
+  button.frame__delete_button(type="button", (click)="onDeleteBynClick()")
+    icon([name]="'delete'")
+  button.frame__copy_button(type="button", (click)="onCopyBynClick()")
+    icon([name]="'copy'")
