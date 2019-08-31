@@ -1,0 +1,41 @@
+.search{
+  width: 60%;
+  margin: 1rem auto;
+  position: relative;
+}
+
+.search::before {
+  content: '';
+  position: absolute;
+  background: url('../../assets/img/loupe.svg') no-repeat center;
+  background-size: cover;
+  width: 1.5rem;
+  height: 1.5rem;
+  top: 0.375rem;
+  left: 0.375rem;
+}
+
+.search__input {
+  display: block;
+  width: 100%;
+  line-height: 2.25rem;
+  border-radius: 0.25rem;
+  border: none;
+  padding: 0 3rem;
+}
+
+.search__input:invalid{
+  color: #ff0000;
+}
+
+.search__clear_btn{
+  position: absolute;
+  height: 2.25rem;
+  width: 2.25rem;
+  top: 0;
+  right: 0;
+  background: url('../../assets/img/close.svg') no-repeat center;
+  background-size: 35%;
+  border: none;
+  cursor: pointer;
+}

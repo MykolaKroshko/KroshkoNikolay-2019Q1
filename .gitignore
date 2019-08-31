@@ -1,20 +1,13 @@
 #IDE
 *.iml
 .idea/
-<<<<<<< HEAD
-.editorconfig
-=======
->>>>>>> master
 
 #Generated files
 node_modules/
 dist/
+coverage/
 *.bundle.js
 *.log
 
 #Temp Files
-<<<<<<< HEAD
 task_files/
-=======
-task_files/
->>>>>>> master
