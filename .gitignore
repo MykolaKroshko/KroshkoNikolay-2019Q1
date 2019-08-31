@@ -1,6 +1,10 @@
 #IDE
 *.iml
 .idea/
+<<<<<<< HEAD
+.editorconfig
+=======
+>>>>>>> master
 
 #Generated files
 node_modules/
@@ -9,4 +13,8 @@ dist/
 *.log
 
 #Temp Files
+<<<<<<< HEAD
 task_files/
+=======
+task_files/
+>>>>>>> master
