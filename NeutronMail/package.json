@@ -1,0 +1,19 @@
+{
+  "name": "neutron-mail",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --browser=chrome --watch=./css,./assets,*.html --entry-file=./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KroshkoNikolay/NeutronMail.git"
+  },
+  "author": "KroshkoNikolay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KroshkoNikolay/NeutronMail/issues"
+  },
+  "homepage": "https://github.com/KroshkoNikolay/NeutronMail#readme"
+}

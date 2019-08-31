@@ -1,0 +1,303 @@
+html{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-width: 320px;
+  height: 100%;
+}
+
+body{
+  color: rgba(0, 0, 0, 0.54);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+input.hidden:focus + label,
+input:not(.hidden):focus,
+button:focus,
+a:focus{
+  outline: none;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.15);
+}
+
+.shadow{
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.hidden{
+  position: absolute !important;
+  height: 1px !important;
+  width: 1px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+/* * * * * * * * * * HEADER START * * * * * * * * * */
+
+.header{
+  position: relative;
+  display: flex;
+}
+
+.header__title{
+  font-size: 1.5rem;
+  line-height: 2;
+  margin: 0;
+}
+
+/*--------------- Header Burger Start ---------------*/
+
+.navigation__collapse_label{
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: 0.5rem;
+  margin-right: 1.5rem;
+  display: block;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  position: relative;
+}
+
+.navigation__collapse_label_text{
+  font-size: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navigation__collapse_label_text::after,
+.navigation__collapse_label_text::before{
+  content: '';
+  left: 0;
+}
+
+.navigation__collapse_label_text,
+.navigation__collapse_label_text::after,
+.navigation__collapse_label_text::before{
+  position: absolute;
+  display: inline-block;
+  width: 1.125rem;
+  height: 0.125rem;
+  background-color: rgba(0, 0, 0, 0.54);
+  transition-duration: 0.3s;
+}
+
+.navigation__collapse_label_text::after{
+  bottom: 0.3125rem;
+}
+.navigation__collapse_label_text::before{
+  top: 0.3125rem;
+}
+
+.navigation__collapse:checked+.navigation__collapse_label .navigation__collapse_label_text{
+  background-color: transparent;
+}
+
+.navigation__collapse:checked+.navigation__collapse_label .navigation__collapse_label_text::after,
+.navigation__collapse:checked+.navigation__collapse_label .navigation__collapse_label_text::before{
+  bottom: 1px;
+  top: 1px;
+}
+
+.navigation__collapse:checked+.navigation__collapse_label .navigation__collapse_label_text::before{
+  transform: rotateZ(-45deg);
+}
+
+.navigation__collapse:checked+.navigation__collapse_label .navigation__collapse_label_text::after{
+  transform: rotateZ(45deg);
+}
+
+/*--------------- Header Burger End ---------------*/
+
+/*--------------- Header Menu Start ---------------*/
+
+.menu__collapse{
+  position: absolute;
+  top: calc(50% - 0.25rem);
+  right: 1rem;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  width: 0.75rem;
+  height: 1.5rem;
+  font-size: 0;
+}
+
+.menu__collapse span{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu__collapse span::before,
+.menu__collapse span::after{
+  content: '';
+  left: 0;
+}
+
+.menu__collapse span,
+.menu__collapse span::before,
+.menu__collapse span::after{
+  position: absolute;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.54);
+}
+  
+.menu__collapse span::before{
+  bottom: 0.375rem;
+}
+
+.menu__collapse span::after{
+  top: 0.375rem;
+}
+
+/*--------------- Header Menu End ---------------*/
+
+/* * * * * * * * * * HEADER END * * * * * * * * * */
+
+/* * * * * * * * * * MAIN START * * * * * * * * * */
+
+.main{
+  flex: 1;
+  padding: 2.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/*--------------- Pallet Menu Start ---------------*/
+
+.pallet{
+  width: 14rem;
+  max-width: calc((100vmin - 4rem) * 0.2);
+  min-width: 12.5rem;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.pallet__tools_wrapper:not(:last-of-type){
+  margin-bottom: 1rem;
+}
+
+.pallet__tools {
+  position: relative;
+  z-index: 10;
+  background-color: #ffffff;
+}
+
+.pallet__tools_block:not(:last-of-type){
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.pallet__tools_item{
+  display: flex;
+  align-items: center;
+}
+
+.pallet__tools_item:hover{
+  cursor: pointer;
+}
+
+.pallet__tools_item:hover .pallet__tools_item_title{
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.pallet__colors_item_pic{
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  flex-shrink: 0;
+  margin: 1.125rem;
+}
+
+.pallet__tools_item_label{
+  margin: 0;
+  display: block;
+  flex: 1;
+  cursor: pointer;
+}
+
+.pallet__colors_item_pic--custom{
+  border: none;
+  border-radius: 0;
+}
+
+.pallet__tools_item_icon{
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 1.125rem;
+}
+
+.pallet__tools--tools .pallet__tools_item.current{
+  background-color: #f3f3f3;
+}
+
+/*--------------- Pallet Menu End ---------------*/
+
+/*--------------- Canvas Menu Start ---------------*/
+
+.canvas__wrapper{
+  width:  calc((100vmin - 4rem) * 0.8);
+  max-width:  calc((100vw - 4rem - 12.5rem) * 0.8);
+  min-width: 256px;
+}
+
+.canvas{
+  position: relative;
+  height: 0;
+  padding: 100% 0 0 0;
+}
+.canvas__blocks{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+}
+
+.canvas__block_wrapper{
+  position: relative;
+}
+
+.canvas__block.round {
+  border-radius: 50%;
+}
+
+.canvas__block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.canvas__block:hover{
+  transform: scale(1.05);
+}
+
+.canvas__block.current{
+  border: 2px dashed olivedrab;
+}
+/*--------------- Canvas Menu End ---------------*/
+
+/* * * * * * * * * * MAIN END * * * * * * * * * */
